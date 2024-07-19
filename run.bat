@@ -21,7 +21,7 @@ for /f "delims=." %%a in ("%FILENAME%") do set "FILENUMBER=%%a"
 copy /b %HEADER_PATH%dawnHeader.js + %FILEPATH% %CONCATENATED_NAME% > NUL
 
 :: Execute file and save output 
-cmd /c node "%CONCATENATED_NAME%" > "%REPORTS_PATH%dawn\%FILENUMBER%.log" 2>&1
+cmd /c node "%CONCATENATED_NAME%" > "%REPORTS_PATH%dawn\windows\%FILENUMBER%.log" 2>&1
 
 :: Delete concatenated file
 del %CONCATENATED_NAME%
