@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# Ensure script exits on error
+set -e
+
+# NEED DIFFERENCES ACCORIDING TO MACOS AND LINUX 
+
+# Set constants
+REPORTS_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/reports/"
+HEADER_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/headers/"
+CONCATENATED_NAME="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/concatenated.js"
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    OS_DIR="macos"
+    INTERCEPTORS="DYLD_INSERT_LIBRARIES=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/lib/darwin/libclang_rt.asan_osx_dynamic.dylib"
+    TIMEOUT_CMD="gtimeout"
+else
+    OS_DIR="linux"
+    INTERCEPTORS="LD_PRELOAD=/usr/lib/gcc/x86_64-linux-gnu/11/libasan.so"
+    TIMEOUT_CMD="timeout"
+fi
+
+# Create reports directory if it does not exist
+mkdir -p "${REPORTS_PATH}dawn/${OS_DIR}/"
+
+# Set the file path from the first command line argument
+FILEPATH="$1"
+
+# Extract filename with extension from FILEPATH
+FILENAME=$(basename "$FILEPATH")
+
+# Now extract the number from the filename
+FILENUMBER="${FILENAME%%.*}"
+
+# Fetch and concatenate Node Header
+cat "${HEADER_PATH}dawnHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
+
+# Execute file and save output
+if ! $TIMEOUT_CMD 30s env $INTERCEPTORS node "$CONCATENATED_NAME" > "${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log" 2>&1; then
+    echo "The command timed out." >> "${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log"
+fi
+
+# Delete concatenated file
+rm "$CONCATENATED_NAME"
+
+# Uncomment below if needed for handling Deno scenarios
+# Fetch and concatenate Deno Header
+# cat "${HEADER_PATH}denoHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
+
+# Execute file and save output as 1.log
+# DENO_WEBGPU_BACKEND=dx12 deno run --allow-read --unstable-webgpu --allow-write "$CONCATENATED_NAME" > "${REPORTS_PATH}wgpu/${FILENUMBER}.log" 2>&1
+
+# Delete concatenated file
+# rm "$CONCATENATED_NAME"
