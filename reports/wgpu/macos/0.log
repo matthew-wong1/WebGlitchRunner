@@ -1,0 +1,13 @@
+Device::create_shader_module error: 
+Shader 'compute' parsing error: failed to convert expression to a concrete type: Cannot cast scalar components of expression `[17] Unary { op: Negate, expr: [16] }` to type `i32`
+    ┌─ wgsl:368:34
+    │
+368 │   let var_0 = max(49, min(-7144, -(-31344 >> (_wgslsmith_add_u32(4294967295u, u_input.b.x) % 32u))));
+    │                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ this expression has type {AbstractInt}
+    │
+    = note: the expression should have been converted to have i32 scalar type
+
+
+TypeError: this[_type] is not a function
+    at GPUQuerySet.get type (ext:deno_webgpu/01_webgpu.js:5228:23)
+    at main (file:///Users/matthew/Documents/msc/final_proj/WebGlitchRunner/concatenated.js:252:34)

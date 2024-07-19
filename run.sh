@@ -14,10 +14,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     OS_DIR="macos"
     INTERCEPTORS="DYLD_INSERT_LIBRARIES=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/lib/darwin/libclang_rt.asan_osx_dynamic.dylib"
     TIMEOUT_CMD="gtimeout"
+    WGPU_BACKEND="DENO_WEBGPU_BACKEND=metal"
+    DENO_PATH="/Users/matthew/Documents/msc/final_proj/deno/target/aarch64-apple-darwin/debug/deno"
 else
     OS_DIR="linux"
     INTERCEPTORS="LD_PRELOAD=/usr/lib/gcc/x86_64-linux-gnu/11/libasan.so"
     TIMEOUT_CMD="timeout"
+    WGPU_BACKEND="DENO_WEBGPU_BACKEND=vulkan"
+    DENO_PATH="/Users/matthew/Documents/msc/final_proj/deno/target/x86_64-unknown-linux-gnu/debug/deno"
 fi
 
 # Create reports directory if it does not exist
@@ -37,18 +41,22 @@ cat "${HEADER_PATH}dawnHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
 
 # Execute file and save output
 if ! $TIMEOUT_CMD 30s env $INTERCEPTORS node "$CONCATENATED_NAME" > "${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log" 2>&1; then
-    echo "The command timed out." >> "${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log"
+    echo "timeout" >> "${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log"
 fi
 
 # Delete concatenated file
 rm "$CONCATENATED_NAME"
 
-# Uncomment below if needed for handling Deno scenarios
+# Create reports directory if it does not exist
+mkdir -p "${REPORTS_PATH}wgpu/${OS_DIR}/"
+
 # Fetch and concatenate Deno Header
-# cat "${HEADER_PATH}denoHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
+cat "${HEADER_PATH}denoHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
 
 # Execute file and save output as 1.log
-# DENO_WEBGPU_BACKEND=dx12 deno run --allow-read --unstable-webgpu --allow-write "$CONCATENATED_NAME" > "${REPORTS_PATH}wgpu/${FILENUMBER}.log" 2>&1
+if ! $TIMEOUT_CMD 30s env $WGPU_BACKEND $DENO_PATH run --allow-read --unstable-webgpu --allow-write "$CONCATENATED_NAME" > "${REPORTS_PATH}wgpu/${OS_DIR}/${FILENUMBER}.log" 2>&1; then
+    echo "timeout" >> "${REPORTS_PATH}wgpu/${OS_DIR}/${FILENUMBER}.log"
+fi
 
 # Delete concatenated file
-# rm "$CONCATENATED_NAME"
+rm "$CONCATENATED_NAME"

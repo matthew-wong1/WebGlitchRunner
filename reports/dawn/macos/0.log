@@ -1,110 +1,110 @@
 Warning: GetProperties is deprecated, use GetInfo instead.
 =================================================================
-==61091==ERROR: AddressSanitizer: heap-use-after-free on address 0x000109117a38 at pc 0x000123dc6a08 bp 0x00016f369d30 sp 0x00016f369d28
-WRITE of size 1 at 0x000109117a38 thread T0
-    #0 0x123dc6a04 in wgpu::binding::AsyncRunner::QueueTick(Napi::Env)::$_0::operator()(Napi::CallbackInfo const&) const AsyncRunner.cpp:63
-    #1 0x123dc6668 in Napi::details::CallbackData<wgpu::binding::AsyncRunner::QueueTick(Napi::Env)::$_0, void>::Wrapper(napi_env__*, napi_callback_info__*)::'lambda'()::operator()() const napi-inl.h:133
-    #2 0x123dc6318 in napi_value__* Napi::details::WrapCallback<Napi::details::CallbackData<wgpu::binding::AsyncRunner::QueueTick(Napi::Env)::$_0, void>::Wrapper(napi_env__*, napi_callback_info__*)::'lambda'()>(Napi::details::CallbackData<wgpu::binding::AsyncRunner::QueueTick(Napi::Env)::$_0, void>::Wrapper(napi_env__*, napi_callback_info__*)::'lambda'()) napi-inl.h:87
-    #3 0x123dc6078 in Napi::details::CallbackData<wgpu::binding::AsyncRunner::QueueTick(Napi::Env)::$_0, void>::Wrapper(napi_env__*, napi_callback_info__*) napi-inl.h:128
-    #4 0x100b27978 in v8impl::(anonymous namespace)::FunctionCallbackWrapper::Invoke(v8::FunctionCallbackInfo<v8::Value> const&)+0x68 (node:arm64+0x100093978)
-    #5 0x100d5c1f8 in v8::internal::MaybeHandle<v8::internal::Object> v8::internal::(anonymous namespace)::HandleApiCallHelper<false>(v8::internal::Isolate*, v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Handle<v8::internal::FunctionTemplateInfo>, v8::internal::Handle<v8::internal::Object>, unsigned long*, int)+0x2d4 (node:arm64+0x1002c81f8)
-    #6 0x100d5b8f0 in v8::internal::Builtin_HandleApiCall(int, unsigned long*, v8::internal::Isolate*)+0xbc (node:arm64+0x1002c78f0)
-    #7 0x1015e4b20 in Builtins_CEntry_Return1_ArgvOnStack_BuiltinExit+0x60 (node:arm64+0x100b50b20)
-    #8 0x10155c3e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
-    #9 0x10155a508 in Builtins_JSEntryTrampoline+0xa8 (node:arm64+0x100ac6508)
-    #10 0x10155a1f0 in Builtins_JSEntry+0x90 (node:arm64+0x100ac61f0)
-    #11 0x100e3025c in v8::internal::(anonymous namespace)::Invoke(v8::internal::Isolate*, v8::internal::(anonymous namespace)::InvokeParams const&)+0xb98 (node:arm64+0x10039c25c)
-    #12 0x100e2f6a8 in v8::internal::Execution::Call(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Object>, v8::internal::Handle<v8::internal::Object>, int, v8::internal::Handle<v8::internal::Object>*)+0xc4 (node:arm64+0x10039b6a8)
-    #13 0x100d09f78 in v8::Function::Call(v8::Local<v8::Context>, v8::Local<v8::Value>, int, v8::Local<v8::Value>*)+0x204 (node:arm64+0x100275f78)
-    #14 0x100a98fd4 in node::InternalMakeCallback(node::Environment*, v8::Local<v8::Object>, v8::Local<v8::Object>, v8::Local<v8::Function>, int, v8::Local<v8::Value>*, node::async_context)+0x1f8 (node:arm64+0x100004fd4)
-    #15 0x100a99300 in node::MakeCallback(v8::Isolate*, v8::Local<v8::Object>, v8::Local<v8::Function>, int, v8::Local<v8::Value>*, node::async_context)+0xbc (node:arm64+0x100005300)
-    #16 0x100b0e550 in node::Environment::CheckImmediate(uv_check_s*)+0x1a8 (node:arm64+0x10007a550)
-    #17 0x101540750 in uv__run_check+0x84 (node:arm64+0x100aac750)
-    #18 0x10153a470 in uv_run+0x528 (node:arm64+0x100aa6470)
-    #19 0x100a99750 in node::SpinEventLoopInternal(node::Environment*)+0xfc (node:arm64+0x100005750)
-    #20 0x100ba9b88 in node::NodeMainInstance::Run(node::ExitCode*, node::Environment*)+0xa0 (node:arm64+0x100115b88)
-    #21 0x100ba9924 in node::NodeMainInstance::Run()+0x78 (node:arm64+0x100115924)
-    #22 0x100b336b4 in node::Start(int, char**)+0x304 (node:arm64+0x10009f6b4)
+==61573==ERROR: AddressSanitizer: heap-use-after-free on address 0x00010c817a38 at pc 0x0001273c6a08 bp 0x00016bd21d30 sp 0x00016bd21d28
+WRITE of size 1 at 0x00010c817a38 thread T0
+    #0 0x1273c6a04 in wgpu::binding::AsyncRunner::QueueTick(Napi::Env)::$_0::operator()(Napi::CallbackInfo const&) const AsyncRunner.cpp:63
+    #1 0x1273c6668 in Napi::details::CallbackData<wgpu::binding::AsyncRunner::QueueTick(Napi::Env)::$_0, void>::Wrapper(napi_env__*, napi_callback_info__*)::'lambda'()::operator()() const napi-inl.h:133
+    #2 0x1273c6318 in napi_value__* Napi::details::WrapCallback<Napi::details::CallbackData<wgpu::binding::AsyncRunner::QueueTick(Napi::Env)::$_0, void>::Wrapper(napi_env__*, napi_callback_info__*)::'lambda'()>(Napi::details::CallbackData<wgpu::binding::AsyncRunner::QueueTick(Napi::Env)::$_0, void>::Wrapper(napi_env__*, napi_callback_info__*)::'lambda'()) napi-inl.h:87
+    #3 0x1273c6078 in Napi::details::CallbackData<wgpu::binding::AsyncRunner::QueueTick(Napi::Env)::$_0, void>::Wrapper(napi_env__*, napi_callback_info__*) napi-inl.h:128
+    #4 0x10416f978 in v8impl::(anonymous namespace)::FunctionCallbackWrapper::Invoke(v8::FunctionCallbackInfo<v8::Value> const&)+0x68 (node:arm64+0x100093978)
+    #5 0x1043a41f8 in v8::internal::MaybeHandle<v8::internal::Object> v8::internal::(anonymous namespace)::HandleApiCallHelper<false>(v8::internal::Isolate*, v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Handle<v8::internal::FunctionTemplateInfo>, v8::internal::Handle<v8::internal::Object>, unsigned long*, int)+0x2d4 (node:arm64+0x1002c81f8)
+    #6 0x1043a38f0 in v8::internal::Builtin_HandleApiCall(int, unsigned long*, v8::internal::Isolate*)+0xbc (node:arm64+0x1002c78f0)
+    #7 0x104c2cb20 in Builtins_CEntry_Return1_ArgvOnStack_BuiltinExit+0x60 (node:arm64+0x100b50b20)
+    #8 0x104ba43e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
+    #9 0x104ba2508 in Builtins_JSEntryTrampoline+0xa8 (node:arm64+0x100ac6508)
+    #10 0x104ba21f0 in Builtins_JSEntry+0x90 (node:arm64+0x100ac61f0)
+    #11 0x10447825c in v8::internal::(anonymous namespace)::Invoke(v8::internal::Isolate*, v8::internal::(anonymous namespace)::InvokeParams const&)+0xb98 (node:arm64+0x10039c25c)
+    #12 0x1044776a8 in v8::internal::Execution::Call(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Object>, v8::internal::Handle<v8::internal::Object>, int, v8::internal::Handle<v8::internal::Object>*)+0xc4 (node:arm64+0x10039b6a8)
+    #13 0x104351f78 in v8::Function::Call(v8::Local<v8::Context>, v8::Local<v8::Value>, int, v8::Local<v8::Value>*)+0x204 (node:arm64+0x100275f78)
+    #14 0x1040e0fd4 in node::InternalMakeCallback(node::Environment*, v8::Local<v8::Object>, v8::Local<v8::Object>, v8::Local<v8::Function>, int, v8::Local<v8::Value>*, node::async_context)+0x1f8 (node:arm64+0x100004fd4)
+    #15 0x1040e1300 in node::MakeCallback(v8::Isolate*, v8::Local<v8::Object>, v8::Local<v8::Function>, int, v8::Local<v8::Value>*, node::async_context)+0xbc (node:arm64+0x100005300)
+    #16 0x104156550 in node::Environment::CheckImmediate(uv_check_s*)+0x1a8 (node:arm64+0x10007a550)
+    #17 0x104b88750 in uv__run_check+0x84 (node:arm64+0x100aac750)
+    #18 0x104b82470 in uv_run+0x528 (node:arm64+0x100aa6470)
+    #19 0x1040e1750 in node::SpinEventLoopInternal(node::Environment*)+0xfc (node:arm64+0x100005750)
+    #20 0x1041f1b88 in node::NodeMainInstance::Run(node::ExitCode*, node::Environment*)+0xa0 (node:arm64+0x100115b88)
+    #21 0x1041f1924 in node::NodeMainInstance::Run()+0x78 (node:arm64+0x100115924)
+    #22 0x10417b6b4 in node::Start(int, char**)+0x304 (node:arm64+0x10009f6b4)
     #23 0x1802ee0dc  (<unknown module>)
 
-0x000109117a38 is located 40 bytes inside of 48-byte region [0x000109117a10,0x000109117a40)
+0x00010c817a38 is located 40 bytes inside of 48-byte region [0x00010c817a10,0x00010c817a40)
 freed by thread T0 here:
-    #0 0x106cc5b8c in wrap__ZdlPv+0x74 (libclang_rt.asan_osx_dynamic.dylib:arm64e+0x61b8c)
-    #1 0x123db589c in void std::__1::__libcpp_operator_delete[abi:un170006]<void*>(void*) new:308
-    #2 0x123db584c in void std::__1::__do_deallocate_handle_size[abi:un170006]<>(void*, unsigned long) new:332
-    #3 0x123db57f0 in std::__1::__libcpp_deallocate[abi:un170006](void*, unsigned long, unsigned long) new:348
-    #4 0x123e56e00 in std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>::deallocate[abi:un170006](std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>*, unsigned long) allocator.h:130
-    #5 0x123e56db0 in std::__1::allocator_traits<std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>>::deallocate[abi:un170006](std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>&, std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>*, unsigned long) allocator_traits.h:288
-    #6 0x123e56a98 in std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>::__on_zero_shared_weak() shared_ptr.h:333
-    #7 0x123db9d38 in std::__1::__shared_weak_count::__release_shared[abi:un170006]() shared_ptr.h:215
-    #8 0x123db9cf8 in std::__1::shared_ptr<wgpu::binding::AsyncRunner>::~shared_ptr[abi:un170006]() shared_ptr.h:773
-    #9 0x123db9c08 in std::__1::shared_ptr<wgpu::binding::AsyncRunner>::~shared_ptr[abi:un170006]() shared_ptr.h:771
-    #10 0x123f0d7d4 in wgpu::binding::GPUShaderModule::~GPUShaderModule() GPUShaderModule.h:44
-    #11 0x123f0d798 in wgpu::binding::GPUShaderModule::~GPUShaderModule() GPUShaderModule.h:44
-    #12 0x123f4ae58 in wgpu::binding::GPUShaderModule::~GPUShaderModule() GPUShaderModule.h:44
-    #13 0x123f0d5dc in std::__1::default_delete<wgpu::interop::GPUShaderModule>::operator()[abi:un170006](wgpu::interop::GPUShaderModule*) const unique_ptr.h:68
-    #14 0x123f0d4cc in std::__1::unique_ptr<wgpu::interop::GPUShaderModule, std::__1::default_delete<wgpu::interop::GPUShaderModule>>::reset[abi:un170006](wgpu::interop::GPUShaderModule*) unique_ptr.h:300
-    #15 0x123f0d3e0 in std::__1::unique_ptr<wgpu::interop::GPUShaderModule, std::__1::default_delete<wgpu::interop::GPUShaderModule>>::~unique_ptr[abi:un170006]() unique_ptr.h:266
-    #16 0x123f0c930 in std::__1::unique_ptr<wgpu::interop::GPUShaderModule, std::__1::default_delete<wgpu::interop::GPUShaderModule>>::~unique_ptr[abi:un170006]() unique_ptr.h:266
-    #17 0x1241f7f48 in wgpu::interop::(anonymous namespace)::Wrappers::WGPUShaderModule::~WGPUShaderModule() WebGPU.cpp:1053
-    #18 0x1241f71a8 in wgpu::interop::(anonymous namespace)::Wrappers::WGPUShaderModule::~WGPUShaderModule() WebGPU.cpp:1053
-    #19 0x1241f71d4 in wgpu::interop::(anonymous namespace)::Wrappers::WGPUShaderModule::~WGPUShaderModule() WebGPU.cpp:1053
-    #20 0x1241f7704 in Napi::ObjectWrap<wgpu::interop::(anonymous namespace)::Wrappers::WGPUShaderModule>::FinalizeCallback(napi_env__*, void*, void*) napi-inl.h:4885
-    #21 0x100b39748 in void node_napi_env__::CallbackIntoModule<true, void node_napi_env__::CallFinalizer<true>(void (*)(napi_env__*, void*, void*), void*, void*)::'lambda'(napi_env__*)>(void node_napi_env__::CallFinalizer<true>(void (*)(napi_env__*, void*, void*), void*, void*)::'lambda'(napi_env__*)&&)+0x3c (node:arm64+0x1000a5748)
-    #22 0x100b356a0 in node_napi_env__::CallFinalizer(void (*)(napi_env__*, void*, void*), void*, void*)+0x50 (node:arm64+0x1000a16a0)
-    #23 0x100b1da20 in non-virtual thunk to v8impl::Reference::Finalize()+0x6c (node:arm64+0x100089a20)
-    #24 0x100b399cc in node::CallbackQueue<void, node::Environment*>::CallbackImpl<node_napi_env__::EnqueueFinalizer(v8impl::RefTracker*)::$_0>::Call(node::Environment*)+0x60 (node:arm64+0x1000a59cc)
-    #25 0x100b0f4a0 in node::Environment::RunAndClearNativeImmediates(bool)::$_7::operator()(node::CallbackQueue<void, node::Environment*>*) const+0x60 (node:arm64+0x10007b4a0)
-    #26 0x100b0eb28 in node::Environment::RunAndClearNativeImmediates(bool)+0x190 (node:arm64+0x10007ab28)
-    #27 0x100b0e4e4 in node::Environment::CheckImmediate(uv_check_s*)+0x13c (node:arm64+0x10007a4e4)
-    #28 0x101540750 in uv__run_check+0x84 (node:arm64+0x100aac750)
-    #29 0x10153a470 in uv_run+0x528 (node:arm64+0x100aa6470)
+    #0 0x10a30db8c in wrap__ZdlPv+0x74 (libclang_rt.asan_osx_dynamic.dylib:arm64e+0x61b8c)
+    #1 0x1273b589c in void std::__1::__libcpp_operator_delete[abi:un170006]<void*>(void*) new:308
+    #2 0x1273b584c in void std::__1::__do_deallocate_handle_size[abi:un170006]<>(void*, unsigned long) new:332
+    #3 0x1273b57f0 in std::__1::__libcpp_deallocate[abi:un170006](void*, unsigned long, unsigned long) new:348
+    #4 0x127456e00 in std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>::deallocate[abi:un170006](std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>*, unsigned long) allocator.h:130
+    #5 0x127456db0 in std::__1::allocator_traits<std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>>::deallocate[abi:un170006](std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>&, std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>*, unsigned long) allocator_traits.h:288
+    #6 0x127456a98 in std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>::__on_zero_shared_weak() shared_ptr.h:333
+    #7 0x1273b9d38 in std::__1::__shared_weak_count::__release_shared[abi:un170006]() shared_ptr.h:215
+    #8 0x1273b9cf8 in std::__1::shared_ptr<wgpu::binding::AsyncRunner>::~shared_ptr[abi:un170006]() shared_ptr.h:773
+    #9 0x1273b9c08 in std::__1::shared_ptr<wgpu::binding::AsyncRunner>::~shared_ptr[abi:un170006]() shared_ptr.h:771
+    #10 0x12750d7d4 in wgpu::binding::GPUShaderModule::~GPUShaderModule() GPUShaderModule.h:44
+    #11 0x12750d798 in wgpu::binding::GPUShaderModule::~GPUShaderModule() GPUShaderModule.h:44
+    #12 0x12754ae58 in wgpu::binding::GPUShaderModule::~GPUShaderModule() GPUShaderModule.h:44
+    #13 0x12750d5dc in std::__1::default_delete<wgpu::interop::GPUShaderModule>::operator()[abi:un170006](wgpu::interop::GPUShaderModule*) const unique_ptr.h:68
+    #14 0x12750d4cc in std::__1::unique_ptr<wgpu::interop::GPUShaderModule, std::__1::default_delete<wgpu::interop::GPUShaderModule>>::reset[abi:un170006](wgpu::interop::GPUShaderModule*) unique_ptr.h:300
+    #15 0x12750d3e0 in std::__1::unique_ptr<wgpu::interop::GPUShaderModule, std::__1::default_delete<wgpu::interop::GPUShaderModule>>::~unique_ptr[abi:un170006]() unique_ptr.h:266
+    #16 0x12750c930 in std::__1::unique_ptr<wgpu::interop::GPUShaderModule, std::__1::default_delete<wgpu::interop::GPUShaderModule>>::~unique_ptr[abi:un170006]() unique_ptr.h:266
+    #17 0x1277f7f48 in wgpu::interop::(anonymous namespace)::Wrappers::WGPUShaderModule::~WGPUShaderModule() WebGPU.cpp:1053
+    #18 0x1277f71a8 in wgpu::interop::(anonymous namespace)::Wrappers::WGPUShaderModule::~WGPUShaderModule() WebGPU.cpp:1053
+    #19 0x1277f71d4 in wgpu::interop::(anonymous namespace)::Wrappers::WGPUShaderModule::~WGPUShaderModule() WebGPU.cpp:1053
+    #20 0x1277f7704 in Napi::ObjectWrap<wgpu::interop::(anonymous namespace)::Wrappers::WGPUShaderModule>::FinalizeCallback(napi_env__*, void*, void*) napi-inl.h:4885
+    #21 0x104181748 in void node_napi_env__::CallbackIntoModule<true, void node_napi_env__::CallFinalizer<true>(void (*)(napi_env__*, void*, void*), void*, void*)::'lambda'(napi_env__*)>(void node_napi_env__::CallFinalizer<true>(void (*)(napi_env__*, void*, void*), void*, void*)::'lambda'(napi_env__*)&&)+0x3c (node:arm64+0x1000a5748)
+    #22 0x10417d6a0 in node_napi_env__::CallFinalizer(void (*)(napi_env__*, void*, void*), void*, void*)+0x50 (node:arm64+0x1000a16a0)
+    #23 0x104165a20 in non-virtual thunk to v8impl::Reference::Finalize()+0x6c (node:arm64+0x100089a20)
+    #24 0x1041819cc in node::CallbackQueue<void, node::Environment*>::CallbackImpl<node_napi_env__::EnqueueFinalizer(v8impl::RefTracker*)::$_0>::Call(node::Environment*)+0x60 (node:arm64+0x1000a59cc)
+    #25 0x1041574a0 in node::Environment::RunAndClearNativeImmediates(bool)::$_7::operator()(node::CallbackQueue<void, node::Environment*>*) const+0x60 (node:arm64+0x10007b4a0)
+    #26 0x104156b28 in node::Environment::RunAndClearNativeImmediates(bool)+0x190 (node:arm64+0x10007ab28)
+    #27 0x1041564e4 in node::Environment::CheckImmediate(uv_check_s*)+0x13c (node:arm64+0x10007a4e4)
+    #28 0x104b88750 in uv__run_check+0x84 (node:arm64+0x100aac750)
+    #29 0x104b82470 in uv_run+0x528 (node:arm64+0x100aa6470)
 
 previously allocated by thread T0 here:
-    #0 0x106cc574c in wrap__Znwm+0x74 (libclang_rt.asan_osx_dynamic.dylib:arm64e+0x6174c)
-    #1 0x123db0c60 in void* std::__1::__libcpp_operator_new[abi:un170006]<unsigned long>(unsigned long) new:298
-    #2 0x123db0be4 in std::__1::__libcpp_allocate[abi:un170006](unsigned long, unsigned long) new:324
-    #3 0x123e564fc in std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>::allocate[abi:un170006](unsigned long) allocator.h:114
-    #4 0x123e56458 in std::__1::allocator_traits<std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>>::allocate[abi:un170006](std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>&, unsigned long) allocator_traits.h:268
-    #5 0x123e56328 in std::__1::__allocation_guard<std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>>::__allocation_guard[abi:un170006]<std::__1::allocator<wgpu::binding::AsyncRunner>>(std::__1::allocator<wgpu::binding::AsyncRunner>, unsigned long) allocation_guard.h:57
-    #6 0x123e55e4c in std::__1::__allocation_guard<std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>>::__allocation_guard[abi:un170006]<std::__1::allocator<wgpu::binding::AsyncRunner>>(std::__1::allocator<wgpu::binding::AsyncRunner>, unsigned long) allocation_guard.h:58
-    #7 0x123e55d0c in std::__1::shared_ptr<wgpu::binding::AsyncRunner> std::__1::allocate_shared[abi:un170006]<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>, dawn::native::Instance*, void>(std::__1::allocator<wgpu::binding::AsyncRunner> const&, dawn::native::Instance*&&) shared_ptr.h:1022
-    #8 0x123e4b7dc in std::__1::shared_ptr<wgpu::binding::AsyncRunner> std::__1::make_shared[abi:un170006]<wgpu::binding::AsyncRunner, dawn::native::Instance*, void>(dawn::native::Instance*&&) shared_ptr.h:1032
-    #9 0x123e4b2e8 in wgpu::binding::GPU::GPU(wgpu::binding::Flags) GPU.cpp:135
-    #10 0x123e4bb34 in wgpu::binding::GPU::GPU(wgpu::binding::Flags) GPU.cpp:115
-    #11 0x123db80a0 in std::__1::__unique_if<wgpu::binding::GPU>::__unique_single std::__1::make_unique[abi:un170006]<wgpu::binding::GPU, wgpu::binding::Flags>(wgpu::binding::Flags&&) unique_ptr.h:689
-    #12 0x123dabed4 in wgpu::interop::Interface<wgpu::interop::GPU> wgpu::interop::GPU::Create<wgpu::binding::GPU, wgpu::binding::Flags>(Napi::Env, wgpu::binding::Flags&&) WebGPU.h:2835
-    #13 0x123daa3fc in (anonymous namespace)::CreateGPU(Napi::CallbackInfo const&) Module.cpp:72
-    #14 0x123dbacfc in napi_value__* Napi::details::TemplatedCallback<&(anonymous namespace)::CreateGPU(Napi::CallbackInfo const&)>(napi_env__*, napi_callback_info__*)::'lambda'()::operator()() const napi-inl.h:157
-    #15 0x123dba988 in napi_value__* Napi::details::WrapCallback<napi_value__* Napi::details::TemplatedCallback<&(anonymous namespace)::CreateGPU(Napi::CallbackInfo const&)>(napi_env__*, napi_callback_info__*)::'lambda'()>(napi_value__* Napi::details::TemplatedCallback<&(anonymous namespace)::CreateGPU(Napi::CallbackInfo const&)>(napi_env__*, napi_callback_info__*)::'lambda'()) napi-inl.h:87
-    #16 0x123daa848 in napi_value__* Napi::details::TemplatedCallback<&(anonymous namespace)::CreateGPU(Napi::CallbackInfo const&)>(napi_env__*, napi_callback_info__*) napi-inl.h:155
-    #17 0x100b27978 in v8impl::(anonymous namespace)::FunctionCallbackWrapper::Invoke(v8::FunctionCallbackInfo<v8::Value> const&)+0x68 (node:arm64+0x100093978)
-    #18 0x100d5c1f8 in v8::internal::MaybeHandle<v8::internal::Object> v8::internal::(anonymous namespace)::HandleApiCallHelper<false>(v8::internal::Isolate*, v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Handle<v8::internal::FunctionTemplateInfo>, v8::internal::Handle<v8::internal::Object>, unsigned long*, int)+0x2d4 (node:arm64+0x1002c81f8)
-    #19 0x100d5b8f0 in v8::internal::Builtin_HandleApiCall(int, unsigned long*, v8::internal::Isolate*)+0xbc (node:arm64+0x1002c78f0)
-    #20 0x1015e4b20 in Builtins_CEntry_Return1_ArgvOnStack_BuiltinExit+0x60 (node:arm64+0x100b50b20)
-    #21 0x10155c3e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
-    #22 0x10155c3e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
-    #23 0x10155c3e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
-    #24 0x10155c3e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
-    #25 0x10155c3e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
-    #26 0x10155c3e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
-    #27 0x10155c3e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
-    #28 0x10155a508 in Builtins_JSEntryTrampoline+0xa8 (node:arm64+0x100ac6508)
-    #29 0x10155a1f0 in Builtins_JSEntry+0x90 (node:arm64+0x100ac61f0)
+    #0 0x10a30d74c in wrap__Znwm+0x74 (libclang_rt.asan_osx_dynamic.dylib:arm64e+0x6174c)
+    #1 0x1273b0c60 in void* std::__1::__libcpp_operator_new[abi:un170006]<unsigned long>(unsigned long) new:298
+    #2 0x1273b0be4 in std::__1::__libcpp_allocate[abi:un170006](unsigned long, unsigned long) new:324
+    #3 0x1274564fc in std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>::allocate[abi:un170006](unsigned long) allocator.h:114
+    #4 0x127456458 in std::__1::allocator_traits<std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>>::allocate[abi:un170006](std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>&, unsigned long) allocator_traits.h:268
+    #5 0x127456328 in std::__1::__allocation_guard<std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>>::__allocation_guard[abi:un170006]<std::__1::allocator<wgpu::binding::AsyncRunner>>(std::__1::allocator<wgpu::binding::AsyncRunner>, unsigned long) allocation_guard.h:57
+    #6 0x127455e4c in std::__1::__allocation_guard<std::__1::allocator<std::__1::__shared_ptr_emplace<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>>>>::__allocation_guard[abi:un170006]<std::__1::allocator<wgpu::binding::AsyncRunner>>(std::__1::allocator<wgpu::binding::AsyncRunner>, unsigned long) allocation_guard.h:58
+    #7 0x127455d0c in std::__1::shared_ptr<wgpu::binding::AsyncRunner> std::__1::allocate_shared[abi:un170006]<wgpu::binding::AsyncRunner, std::__1::allocator<wgpu::binding::AsyncRunner>, dawn::native::Instance*, void>(std::__1::allocator<wgpu::binding::AsyncRunner> const&, dawn::native::Instance*&&) shared_ptr.h:1022
+    #8 0x12744b7dc in std::__1::shared_ptr<wgpu::binding::AsyncRunner> std::__1::make_shared[abi:un170006]<wgpu::binding::AsyncRunner, dawn::native::Instance*, void>(dawn::native::Instance*&&) shared_ptr.h:1032
+    #9 0x12744b2e8 in wgpu::binding::GPU::GPU(wgpu::binding::Flags) GPU.cpp:135
+    #10 0x12744bb34 in wgpu::binding::GPU::GPU(wgpu::binding::Flags) GPU.cpp:115
+    #11 0x1273b80a0 in std::__1::__unique_if<wgpu::binding::GPU>::__unique_single std::__1::make_unique[abi:un170006]<wgpu::binding::GPU, wgpu::binding::Flags>(wgpu::binding::Flags&&) unique_ptr.h:689
+    #12 0x1273abed4 in wgpu::interop::Interface<wgpu::interop::GPU> wgpu::interop::GPU::Create<wgpu::binding::GPU, wgpu::binding::Flags>(Napi::Env, wgpu::binding::Flags&&) WebGPU.h:2835
+    #13 0x1273aa3fc in (anonymous namespace)::CreateGPU(Napi::CallbackInfo const&) Module.cpp:72
+    #14 0x1273bacfc in napi_value__* Napi::details::TemplatedCallback<&(anonymous namespace)::CreateGPU(Napi::CallbackInfo const&)>(napi_env__*, napi_callback_info__*)::'lambda'()::operator()() const napi-inl.h:157
+    #15 0x1273ba988 in napi_value__* Napi::details::WrapCallback<napi_value__* Napi::details::TemplatedCallback<&(anonymous namespace)::CreateGPU(Napi::CallbackInfo const&)>(napi_env__*, napi_callback_info__*)::'lambda'()>(napi_value__* Napi::details::TemplatedCallback<&(anonymous namespace)::CreateGPU(Napi::CallbackInfo const&)>(napi_env__*, napi_callback_info__*)::'lambda'()) napi-inl.h:87
+    #16 0x1273aa848 in napi_value__* Napi::details::TemplatedCallback<&(anonymous namespace)::CreateGPU(Napi::CallbackInfo const&)>(napi_env__*, napi_callback_info__*) napi-inl.h:155
+    #17 0x10416f978 in v8impl::(anonymous namespace)::FunctionCallbackWrapper::Invoke(v8::FunctionCallbackInfo<v8::Value> const&)+0x68 (node:arm64+0x100093978)
+    #18 0x1043a41f8 in v8::internal::MaybeHandle<v8::internal::Object> v8::internal::(anonymous namespace)::HandleApiCallHelper<false>(v8::internal::Isolate*, v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Handle<v8::internal::FunctionTemplateInfo>, v8::internal::Handle<v8::internal::Object>, unsigned long*, int)+0x2d4 (node:arm64+0x1002c81f8)
+    #19 0x1043a38f0 in v8::internal::Builtin_HandleApiCall(int, unsigned long*, v8::internal::Isolate*)+0xbc (node:arm64+0x1002c78f0)
+    #20 0x104c2cb20 in Builtins_CEntry_Return1_ArgvOnStack_BuiltinExit+0x60 (node:arm64+0x100b50b20)
+    #21 0x104ba43e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
+    #22 0x104ba43e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
+    #23 0x104ba43e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
+    #24 0x104ba43e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
+    #25 0x104ba43e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
+    #26 0x104ba43e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
+    #27 0x104ba43e0 in Builtins_InterpreterEntryTrampoline+0x100 (node:arm64+0x100ac83e0)
+    #28 0x104ba2508 in Builtins_JSEntryTrampoline+0xa8 (node:arm64+0x100ac6508)
+    #29 0x104ba21f0 in Builtins_JSEntry+0x90 (node:arm64+0x100ac61f0)
 
 SUMMARY: AddressSanitizer: heap-use-after-free AsyncRunner.cpp:63 in wgpu::binding::AsyncRunner::QueueTick(Napi::Env)::$_0::operator()(Napi::CallbackInfo const&) const
 Shadow bytes around the buggy address:
-  0x000109117780: fa fa 00 00 00 00 00 fa fa fa fd fd fd fd fd fa
-  0x000109117800: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fa
-  0x000109117880: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fa
-  0x000109117900: fa fa fd fd fd fd fd fd fa fa fd fd fd fd fd fd
-  0x000109117980: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fa
-=>0x000109117a00: fa fa fd fd fd fd fd[fd]fa fa fd fd fd fd fd fa
-  0x000109117a80: fa fa 00 00 00 00 00 00 fa fa fd fd fd fd fd fa
-  0x000109117b00: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fa
-  0x000109117b80: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fa
-  0x000109117c00: fa fa fd fd fd fd fd fd fa fa fd fd fd fd fd fa
-  0x000109117c80: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fa
+  0x00010c817780: fa fa 00 00 00 00 00 fa fa fa fd fd fd fd fd fa
+  0x00010c817800: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fa
+  0x00010c817880: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fa
+  0x00010c817900: fa fa fd fd fd fd fd fd fa fa fd fd fd fd fd fd
+  0x00010c817980: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fa
+=>0x00010c817a00: fa fa fd fd fd fd fd[fd]fa fa fd fd fd fd fd fa
+  0x00010c817a80: fa fa 00 00 00 00 00 00 fa fa fd fd fd fd fd fa
+  0x00010c817b00: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fa
+  0x00010c817b80: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fa
+  0x00010c817c00: fa fa fd fd fd fd fd fd fa fa fd fd fd fd fd fa
+  0x00010c817c80: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fa
 Shadow byte legend (one shadow byte represents 8 application bytes):
   Addressable:           00
   Partially addressable: 01 02 03 04 05 06 07 
@@ -124,5 +124,5 @@ Shadow byte legend (one shadow byte represents 8 application bytes):
   ASan internal:           fe
   Left alloca redzone:     ca
   Right alloca redzone:    cb
-==61091==ABORTING
-The command timed out.
+==61573==ABORTING
+timeout
