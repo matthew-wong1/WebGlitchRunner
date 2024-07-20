@@ -40,9 +40,9 @@ FILENUMBER="${FILENAME%%.*}"
 cat "${HEADER_PATH}dawnHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
 
 # Execute file and save output
-if ! $TIMEOUT_CMD 30s env $INTERCEPTORS node "$CONCATENATED_NAME" > "${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log" 2>&1; then
-    echo "timeout" >> "${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log"
-fi
+if ! $TIMEOUT_CMD 30s env $INTERCEPTORS node "$CONCATENATED_NAME" > "${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log" 2>&1;
+exit_code=$?
+echo "Exit code: $exit_code" >> "${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log"
 
 # Delete concatenated file
 rm "$CONCATENATED_NAME"
