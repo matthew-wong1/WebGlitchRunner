@@ -40,9 +40,11 @@ FILENUMBER="${FILENAME%%.*}"
 cat "${HEADER_PATH}dawnHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
 
 # Execute file and save output
-if ! $TIMEOUT_CMD 30s env $INTERCEPTORS node "$CONCATENATED_NAME" > "${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log" 2>&1;
+LOG_FILE_NAME="${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log"
+grep "Errors enabled\|Errors disabled" $FILENAME > $LOG_FILE_NAME
+$TIMEOUT_CMD 30s env $INTERCEPTORS node "$CONCATENATED_NAME" >> "$LOG_FILE_NAME" 2>&1;
 exit_code=$?
-echo "Exit code: $exit_code" >> "${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log"
+echo "Exit code: $exit_code" >> "$LOG_FILE_NAME"
 
 # Delete concatenated file
 rm "$CONCATENATED_NAME"
@@ -54,9 +56,12 @@ mkdir -p "${REPORTS_PATH}wgpu/${OS_DIR}/"
 cat "${HEADER_PATH}denoHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
 
 # Execute file and save output as 1.log
-if ! $TIMEOUT_CMD 30s env $WGPU_BACKEND $DENO_PATH run --allow-read --unstable-webgpu --allow-write "$CONCATENATED_NAME" > "${REPORTS_PATH}wgpu/${OS_DIR}/${FILENUMBER}.log" 2>&1; then
-    echo "timeout" >> "${REPORTS_PATH}wgpu/${OS_DIR}/${FILENUMBER}.log"
-fi
+LOG_FILE_NAME="${REPORTS_PATH}wgpu/${OS_DIR}/${FILENUMBER}.log"
+grep "Errors enabled\|Errors disabled" $FILENAME > $LOG_FILE_NAME
+$TIMEOUT_CMD 30s env $WGPU_BACKEND $DENO_PATH run --allow-read --unstable-webgpu --allow-write "$CONCATENATED_NAME" >> "$LOG_FILE_NAME" 2>&1;
+exit_code=$?
+echo "Exit code: $exit_code" >> "$LOG_FILE_NAME"
+
 
 # Delete concatenated file
 rm "$CONCATENATED_NAME"
