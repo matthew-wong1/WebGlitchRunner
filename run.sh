@@ -41,7 +41,7 @@ cat "${HEADER_PATH}dawnHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
 echo "Running using dawn..."
 LOG_FILE_NAME="${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log"
 grep "Errors enabled\|Errors disabled" $FILEPATH > $LOG_FILE_NAME
-$TIMEOUT_CMD 30s env $INTERCEPTORS node "$CONCATENATED_NAME" >> "$LOG_FILE_NAME" 2>&1;
+$TIMEOUT_CMD 300s env $INTERCEPTORS node "$CONCATENATED_NAME" >> "$LOG_FILE_NAME" 2>&1;
 exit_code=$?
 echo "Exit code: $exit_code" >> "$LOG_FILE_NAME"
 
@@ -58,7 +58,7 @@ cat "${HEADER_PATH}denoHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
 echo "Running using wgpu..."
 LOG_FILE_NAME="${REPORTS_PATH}wgpu/${OS_DIR}/${FILENUMBER}.log"
 grep "Errors enabled\|Errors disabled" $FILEPATH > $LOG_FILE_NAME
-$TIMEOUT_CMD 30s env $WGPU_BACKEND $DENO_PATH run --allow-read --unstable-webgpu --allow-write "$CONCATENATED_NAME" >> "$LOG_FILE_NAME" 2>&1;
+$TIMEOUT_CMD 300s env $WGPU_BACKEND $DENO_PATH run --allow-read --unstable-webgpu --allow-write "$CONCATENATED_NAME" >> "$LOG_FILE_NAME" 2>&1;
 exit_code=$?
 echo "Exit code: $exit_code" >> "$LOG_FILE_NAME"
 
