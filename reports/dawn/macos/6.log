@@ -1,0 +1,18 @@
+// Errors disabled
+validation:
+[CommandBuffer from CommandEncoder "GPUCommandEncoder0"] is associated with [Device], and cannot be used with [Device].
+ - While calling [Queue].Submit([[CommandBuffer from CommandEncoder "GPUCommandEncoder0"]])
+validation:
+[CommandBuffer from CommandEncoder "GPUCommandEncoder2"] is associated with [Device], and cannot be used with [Device].
+ - While calling [Queue].Submit([[CommandBuffer from CommandEncoder "GPUCommandEncoder2"]])
+internal:
+Error creating pipeline state Compiler encountered an internal error
+    at InitializeImpl (/Users/matthew/Documents/msc/final_proj/dawn/src/dawn/native/metal/ComputePipelineMTL.mm:93)
+    at CreateComputePipeline (/Users/matthew/Documents/msc/final_proj/dawn/src/dawn/native/Device.cpp:2124)
+validation:
+[Invalid ComputePipeline "GPUComputePipeline4"] is invalid.
+ - While Validating GetBindGroupLayout (0) on [Invalid ComputePipeline "GPUComputePipeline4"]
+validation:
+[Invalid BindGroupLayout (unlabeled)] is invalid.
+ - While validating [BindGroupDescriptor "GPUComputePipeline4.bindGroup"] against [Invalid BindGroupLayout (unlabeled)]
+ - While calling [Device].CreateBindGroup([BindGroupDescriptor "GPUComputePipeline4.bindGroup"]).

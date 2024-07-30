@@ -1,0 +1,13 @@
+// Errors disabled
+validation:
+[BindGroupLayout (unlabeled)] is associated with [Device], and cannot be used with [Device].
+ - While validating [BindGroupDescriptor "GPUComputePipeline0.bindGroup"] against [BindGroupLayout (unlabeled)]
+ - While calling [Device].CreateBindGroup([BindGroupDescriptor "GPUComputePipeline0.bindGroup"]).
+validation:
+[Invalid BindGroup "GPUComputePipeline0.bindGroup"] is associated with [Device], and cannot be used with [Device].
+ - While encoding [ComputePassEncoder "GPUComputePassEncoder1"].SetBindGroup(0, [Invalid BindGroup "GPUComputePipeline0.bindGroup"], 0, ...).
+ - While finishing [CommandEncoder "GPUCommandEncoder3"].
+internal:
+Error creating pipeline state Compiler encountered an internal error
+    at InitializeImpl (/Users/matthew/Documents/msc/final_proj/dawn/src/dawn/native/metal/ComputePipelineMTL.mm:93)
+    at CreateComputePipeline (/Users/matthew/Documents/msc/final_proj/dawn/src/dawn/native/Device.cpp:2124)

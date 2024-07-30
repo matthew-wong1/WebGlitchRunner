@@ -1,0 +1,5 @@
+// Errors disabled
+OperationError: Failed to execute 'unmap' on 'GPUBuffer': buffer is not ready to be unmapped.
+    at GPUBuffer.unmap (ext:deno_webgpu/01_webgpu.js:2304:13)
+    at main (file:///Users/matthew/Documents/msc/final_proj/WebGlitchRunner/concatenated.js:162:16)
+Exit code: 0

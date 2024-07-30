@@ -1,0 +1,5 @@
+// Errors disabled
+internal:
+Error creating pipeline state Compiler encountered an internal error
+    at InitializeImpl (/Users/matthew/Documents/msc/final_proj/dawn/src/dawn/native/metal/ComputePipelineMTL.mm:93)
+    at CreateComputePipeline (/Users/matthew/Documents/msc/final_proj/dawn/src/dawn/native/Device.cpp:2124)

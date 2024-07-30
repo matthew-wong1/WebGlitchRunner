@@ -1,8 +1,6 @@
 #!/bin/bash
 
 # Ensure script exits on error
-set -e
-
 # NEED DIFFERENCES ACCORIDING TO MACOS AND LINUX 
 
 # Set constants
@@ -57,7 +55,7 @@ mkdir -p "${REPORTS_PATH}wgpu/${OS_DIR}/"
 cat "${HEADER_PATH}denoHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
 
 # Execute file and save output as 1.log
-echo "Running using wppu..."
+echo "Running using wgpu..."
 LOG_FILE_NAME="${REPORTS_PATH}wgpu/${OS_DIR}/${FILENUMBER}.log"
 grep "Errors enabled\|Errors disabled" $FILEPATH > $LOG_FILE_NAME
 $TIMEOUT_CMD 30s env $WGPU_BACKEND $DENO_PATH run --allow-read --unstable-webgpu --allow-write "$CONCATENATED_NAME" >> "$LOG_FILE_NAME" 2>&1;
