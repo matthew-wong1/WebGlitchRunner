@@ -20,7 +20,8 @@ for /f "delims=." %%a in ("%FILENAME%") do set "FILENUMBER=%%a"
 :: Fetch and concatenate Node Header
 copy /b %HEADER_PATH%dawnHeader.js + %FILEPATH% %CONCATENATED_NAME% > NUL
 
-:: Execute file and save output 
+:: Execute file and save output
+echo Running using dawn...
 set LOG_FILE_NAME="%REPORTS_PATH%dawn\windows\%FILENUMBER%.log"
 findstr /R "Errors enabled\|Errors disabled" "%FILEPATH%%FILENAME%" > %LOG_FILE_NAME%
 cmd /c node "%CONCATENATED_NAME%" >> "%LOG_FILE_NAME%" 2>&1
@@ -33,6 +34,7 @@ del %CONCATENATED_NAME%
 : copy /b %HEADER_PATH%denoHeader.js + %FILEPATH% %CONCATENATED_NAME% > NUL
 
 :: Execute file and save output as 1.log
+: echo Running using wgpu...
 : cmd /c DENO_WEBGPU_BACKEND=dx12 deno run --allow-read --unstable-webgpu --allow-write "%CONCATENATED_NAME%" > "%REPORTS_PATH%wgpu\%FILENUMBER%.log" 2>&1
 
 :: Delete concatenated file

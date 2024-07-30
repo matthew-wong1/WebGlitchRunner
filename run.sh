@@ -40,8 +40,9 @@ FILENUMBER="${FILENAME%%.*}"
 cat "${HEADER_PATH}dawnHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
 
 # Execute file and save output
+echo "Running using dawn..."
 LOG_FILE_NAME="${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log"
-grep "Errors enabled\|Errors disabled" $FILENAME > $LOG_FILE_NAME
+grep "Errors enabled\|Errors disabled" $FILEPATH > $LOG_FILE_NAME
 $TIMEOUT_CMD 30s env $INTERCEPTORS node "$CONCATENATED_NAME" >> "$LOG_FILE_NAME" 2>&1;
 exit_code=$?
 echo "Exit code: $exit_code" >> "$LOG_FILE_NAME"
@@ -56,8 +57,9 @@ mkdir -p "${REPORTS_PATH}wgpu/${OS_DIR}/"
 cat "${HEADER_PATH}denoHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
 
 # Execute file and save output as 1.log
+echo "Running using wppu..."
 LOG_FILE_NAME="${REPORTS_PATH}wgpu/${OS_DIR}/${FILENUMBER}.log"
-grep "Errors enabled\|Errors disabled" $FILENAME > $LOG_FILE_NAME
+grep "Errors enabled\|Errors disabled" $FILEPATH > $LOG_FILE_NAME
 $TIMEOUT_CMD 30s env $WGPU_BACKEND $DENO_PATH run --allow-read --unstable-webgpu --allow-write "$CONCATENATED_NAME" >> "$LOG_FILE_NAME" 2>&1;
 exit_code=$?
 echo "Exit code: $exit_code" >> "$LOG_FILE_NAME"
