@@ -22,7 +22,6 @@ else
     WGPU_BACKEND="DENO_WEBGPU_BACKEND=vulkan"
     DENO_PATH="/Users/matthew/Documents/msc/final_proj/deno/target/x86_64-unknown-linux-gnu/debug/deno"
     export VK_INSTANCE_LAYERS=VK_LAYER_KHRONOS_validation
-    export RUST_LOG=trace
 fi
 
 # Create reports directory if it does not exist
