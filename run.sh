@@ -7,6 +7,7 @@
 REPORTS_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/reports/"
 HEADER_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/headers/"
 CONCATENATED_NAME="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/concatenated.js"
+export DAWN_DEBUG_BREAK_ON_ERROR=1
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     OS_DIR="macos"
