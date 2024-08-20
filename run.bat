@@ -4,7 +4,8 @@ setlocal enabledelayedexpansion
 :: Set constants
 set REPORTS_PATH=D:\final_proj\WebGlitchRunner\reports\
 set HEADER_PATH=D:\final_proj\WebGlitchRunner\headers\
-SET CONCATENATED_NAME=D:\final_proj\WebGlitchRunner\concatenated.js
+set CONCATENATED_NAME=D:\final_proj\WebGlitchRunner\concatenated.js
+set DAWN_DEBUG_BREAK_ON_ERROR=1
 
 if not exist "%REPORTS_PATH%" mkdir "%REPORTS_PATH%"
 
