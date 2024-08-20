@@ -8,6 +8,21 @@ REPORTS_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/reports/"
 HEADER_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/headers/"
 CONCATENATED_NAME="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/concatenated.js"
 
+backend=""  # Initialize the variable to store the backend option
+
+while getopts "b:" opt; do
+  case $opt in
+    b)
+      backend="$OPTARG"
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+  esac
+done
+
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
     OS_DIR="macos"
     INTERCEPTORS="DYLD_INSERT_LIBRARIES=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/lib/darwin/libclang_rt.asan_osx_dynamic.dylib"
@@ -34,34 +49,38 @@ FILENAME=$(basename "$FILEPATH")
 # Now extract the number from the filename
 FILENUMBER="${FILENAME%%.*}"
 
-# Fetch and concatenate Node Header
-cat "${HEADER_PATH}dawnHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
+if [[ "$backend" == "all" || "$backend" == "dawn" ]]; then 
+    # Fetch and concatenate Node Header
+    cat "${HEADER_PATH}dawnHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
 
-# Execute file and save output
-echo "Running using dawn..."
-LOG_FILE_NAME="${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log"
-grep "Errors enabled\|Errors disabled" $FILEPATH > $LOG_FILE_NAME
-$TIMEOUT_CMD 300s env $INTERCEPTORS node "$CONCATENATED_NAME" >> "$LOG_FILE_NAME" 2>&1;
-exit_code=$?
-echo "Exit code: $exit_code" >> "$LOG_FILE_NAME"
+    # Execute file and save output
+    echo "Running using dawn..."
+    LOG_FILE_NAME="${REPORTS_PATH}dawn/${OS_DIR}/${FILENUMBER}.log"
+    grep "Errors enabled\|Errors disabled" $FILEPATH > $LOG_FILE_NAME
+    $TIMEOUT_CMD 300s env $INTERCEPTORS node "$CONCATENATED_NAME" >> "$LOG_FILE_NAME" 2>&1;
+    exit_code=$?
+    echo "Exit code: $exit_code" >> "$LOG_FILE_NAME"
 
-# Delete concatenated file
-rm "$CONCATENATED_NAME"
+    # Delete concatenated file
+    rm "$CONCATENATED_NAME"
+fi
 
 # Create reports directory if it does not exist
 mkdir -p "${REPORTS_PATH}wgpu/${OS_DIR}/"
 
-# Fetch and concatenate Deno Header
-cat "${HEADER_PATH}denoHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
+if [[ "$backend" == "all" || "$backend" == "wgpu" ]]; then 
+    # Fetch and concatenate Deno Header
+    cat "${HEADER_PATH}denoHeader.js" "$FILEPATH" > "$CONCATENATED_NAME"
 
-# Execute file and save output as 1.log
-echo "Running using wgpu..."
-LOG_FILE_NAME="${REPORTS_PATH}wgpu/${OS_DIR}/${FILENUMBER}.log"
-grep "Errors enabled\|Errors disabled" $FILEPATH > $LOG_FILE_NAME
-$TIMEOUT_CMD 300s env $WGPU_BACKEND $DENO_PATH run --allow-read --unstable-webgpu --allow-write "$CONCATENATED_NAME" >> "$LOG_FILE_NAME" 2>&1;
-exit_code=$?
-echo "Exit code: $exit_code" >> "$LOG_FILE_NAME"
+    # Execute file and save output as 1.log
+    echo "Running using wgpu..."
+    LOG_FILE_NAME="${REPORTS_PATH}wgpu/${OS_DIR}/${FILENUMBER}.log"
+    grep "Errors enabled\|Errors disabled" $FILEPATH > $LOG_FILE_NAME
+    $TIMEOUT_CMD 300s env $WGPU_BACKEND $DENO_PATH run --allow-read --unstable-webgpu --allow-write "$CONCATENATED_NAME" >> "$LOG_FILE_NAME" 2>&1;
+    exit_code=$?
+    echo "Exit code: $exit_code" >> "$LOG_FILE_NAME"
 
 
-# Delete concatenated file
-rm "$CONCATENATED_NAME"
+    # Delete concatenated file
+    rm "$CONCATENATED_NAME"
+fi
