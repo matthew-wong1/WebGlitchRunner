@@ -10,11 +10,15 @@ CONCATENATED_NAME="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/conca
 export DAWN_DEBUG_BREAK_ON_ERROR=1
 
 backend=""  # Initialize the variable to store the backend option
+FILEPATH=""
 
-while getopts "b:" opt; do
+while getopts "b:o:" opt; do
   case $opt in
     b)
       backend="$OPTARG"
+      ;;
+    o)
+      FILEPATH="$OPTARG"
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
@@ -25,6 +29,11 @@ done
 
 if [ -z "$backend" ]; then
     echo "Error: WebGPU implementation to run on not provided"
+    exit 1
+fi
+
+if [ -z "$FILEPATH" ]; then
+    echo "Error: WebGPU program not specified"
     exit 1
 fi
 
@@ -46,9 +55,6 @@ fi
 
 # Create reports directory if it does not exist
 mkdir -p "${REPORTS_PATH}dawn/${OS_DIR}/"
-
-# Set the file path from the first command line argument
-FILEPATH="$1"
 
 # Extract filename with extension from FILEPATH
 FILENAME=$(basename "$FILEPATH")
