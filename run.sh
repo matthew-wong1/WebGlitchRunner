@@ -23,6 +23,10 @@ while getopts "b:" opt; do
   esac
 done
 
+if [ -z "$backend" ]; then
+    echo "Error: WebGPU implementation to run on not provided"
+    exit 1
+fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     OS_DIR="macos"
