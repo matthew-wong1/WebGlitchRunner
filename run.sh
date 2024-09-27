@@ -97,3 +97,18 @@ if [[ "$backend" == "all" || "$backend" == "wgpu" ]]; then
     # Delete concatenated file
     rm "$CONCATENATED_NAME"
 fi
+
+mkdir -p "${REPORTS_PATH}chrome/${OS_DIR}/"
+
+if [[ "$backend" == "all_browsers" || "$backend" == "chrome" ]]; then
+    echo "Running on Chrome..."
+fi
+
+mkdir -p "${REPORTS_PATH}firefox/${OS_DIR}/"
+
+if [[ "$backend" == "all_browsers" || "$backend" == "firefox" ]]; then
+    echo "Running on Firefox..."
+
+fi
+
+
