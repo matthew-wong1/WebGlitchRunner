@@ -7,6 +7,9 @@
 REPORTS_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/reports/"
 HEADER_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/headers/"
 CONCATENATED_NAME="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/concatenated.js"
+CHROME_PATH="/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
+FIREFOX_PATH="/Applications/Firefox Nightly.app/Contents/MacOS/firefox"
+PUPPETEER_SCRIPT_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitch/rsrcs/js/puppeteer.js"
 export DAWN_DEBUG_BREAK_ON_ERROR=1
 
 backend=""  # Initialize the variable to store the backend option
@@ -101,13 +104,31 @@ fi
 mkdir -p "${REPORTS_PATH}chrome/${OS_DIR}/"
 
 if [[ "$backend" == "all_browsers" || "$backend" == "chrome" ]]; then
+    export BROWSER="chrome"
+    export EXECUTABLE_PATH=$CHROME_PATH
     echo "Running on Chrome..."
+    LOG_FILE_NAME="${REPORTS_PATH}chrome/${OS_DIR}/${FILENUMBER}.log"
+
+    
+    grep "Errors enabled\|Errors disabled" $FILEPATH > $LOG_FILE_NAME
+    $TIMEOUT_CMD 300s node "$PUPPETEER_SCRIPT_PATH" "$FILEPATH" >> "$LOG_FILE_NAME" 2>&1;
+    exit_code=$?
+    echo "Exit code: $exit_code" >> "$LOG_FILE_NAME"
+
 fi
 
 mkdir -p "${REPORTS_PATH}firefox/${OS_DIR}/"
 
 if [[ "$backend" == "all_browsers" || "$backend" == "firefox" ]]; then
+    export BROWSER="firefox"
+    export EXECUTABLE_PATH=$FIREFOX_PATH
+
     echo "Running on Firefox..."
+    LOG_FILE_NAME="${REPORTS_PATH}firefox/${OS_DIR}/${FILENUMBER}.log"
+    grep "Errors enabled\|Errors disabled" $FILEPATH > $LOG_FILE_NAME
+    $TIMEOUT_CMD 300s node "$PUPPETEER_SCRIPT_PATH" "$FILEPATH" >> "$LOG_FILE_NAME" 2>&1;
+    exit_code=$?
+    echo "Exit code: $exit_code" >> "$LOG_FILE_NAME"
 
 fi
 
