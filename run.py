@@ -5,7 +5,7 @@ import sys
 import argparse
 import subprocess
 import platform
-from pathlib import Path
+import signal
 
 # Set constants
 REPORTS_PATH = '/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/reports/'
@@ -13,11 +13,15 @@ HEADER_PATH = '/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/headers/'
 CONCATENATED_NAME = '/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/concatenated.js'
 DENO_PATH = '/Users/matthew/Documents/msc/final_proj/deno/target/x86_64-unknown-linux-gnu/debug/deno'
 PUPPETEER_SCRIPT_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitch/rsrcs/js/puppeteer.js"
+SERVER_DIRECTORY = '/Users/matthew/Documents/msc/final_proj/WebGlitch/rsrcs/html'
 SUPPORTED_BROWSERS = ['chrome', 'firefox']
 SUPPORTED_RUNTIMES = ['dawn', 'wgpu']
+HTTP_SERVER_CMD = ['npx', 'http-server', SERVER_DIRECTORY, '-p', '8080']
 
 # Detect OS type
 OSTYPE = platform.system().lower()
+
+server_process = None 
 
 if 'darwin' in OSTYPE:
     OS_DIR = 'macos'
@@ -49,6 +53,13 @@ def search_errors_enabled_disabled(input_file, output_file):
         for line in infile:
             if 'Errors enabled' in line or 'Errors disabled' in line:
                 outfile.write(line)
+
+def signal_handler(sig, frame):
+    if server_process is not None and server_process.poll() is None:
+        server_process.terminate()
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
 
 def main():
     # Parse command-line arguments
@@ -99,29 +110,42 @@ def main():
     elif backend == 'all_runtimes':
         platforms_to_run = SUPPORTED_RUNTIMES
 
-    for platform in platforms_to_run:
-        if platform in SUPPORTED_RUNTIMES:
-            with open(CONCATENATED_NAME, 'w') as outfile:
-                with open(os.path.join(HEADER_PATH, PLATFORM_MAPPINGS[platform]['header_path']), 'r') as headerfile:
-                    outfile.write(headerfile.read())
-                with open(FILEPATH, 'r') as infile:
-                    outfile.write(infile.read())
+    if any(platform in SUPPORTED_BROWSERS for platform in platforms_to_run):
+        running_in_browser = True
 
-        print("Running using " + platform + "...")
 
-        LOG_FILE_NAME = os.path.join(REPORTS_PATH, platform, OS_DIR, f'{FILENUMBER}.log')
-        search_errors_enabled_disabled(FILEPATH, LOG_FILE_NAME)
+    try:
+        if running_in_browser:
+            server_process = subprocess.Popen(HTTP_SERVER_CMD)
 
-        # Build the command with environment variables inline
+        for platform in platforms_to_run:
+            if platform in SUPPORTED_RUNTIMES:
+                with open(CONCATENATED_NAME, 'w') as outfile:
+                    with open(os.path.join(HEADER_PATH, PLATFORM_MAPPINGS[platform]['header_path']), 'r') as headerfile:
+                        outfile.write(headerfile.read())
+                    with open(FILEPATH, 'r') as infile:
+                        outfile.write(infile.read())
 
-        with open(LOG_FILE_NAME, 'a') as logfile:
-            process = subprocess.run(PLATFORM_MAPPINGS[platform]['cmd'], stdout=logfile, stderr=subprocess.STDOUT)
-            exit_code = process.returncode
-            logfile.write(f"Exit code: {exit_code}\n")
+            print("Running using " + platform + "...")
 
-        # Delete the concatenated file
-        if platform in SUPPORTED_RUNTIMES:
-            os.remove(CONCATENATED_NAME)
+            LOG_FILE_NAME = os.path.join(REPORTS_PATH, platform, OS_DIR, f'{FILENUMBER}.log')
+            search_errors_enabled_disabled(FILEPATH, LOG_FILE_NAME)
+
+            # Build the command with environment variables inline
+
+            with open(LOG_FILE_NAME, 'a') as logfile:
+                process = subprocess.run(PLATFORM_MAPPINGS[platform]['cmd'], stdout=logfile, stderr=subprocess.STDOUT)
+                exit_code = process.returncode
+                logfile.write(f"Exit code: {exit_code}\n")
+
+            # Delete the concatenated file
+            if platform in SUPPORTED_RUNTIMES:
+                os.remove(CONCATENATED_NAME)
+        
+        if running_in_browser:
+            server_process.terminate()
+    except KeyboardInterrupt:
+        pass 
 
 if __name__ == "__main__":
     main()
