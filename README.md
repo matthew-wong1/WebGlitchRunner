@@ -6,6 +6,7 @@ A WebGPU program runner (intended to be integrated with WebGlitch)
 
 1. Node.js v20+
 2. http-server v14+
+3. If you intend on executing in-browser, before executing run.py or calling it through WebGlitch.py, run `npx http-server </path/to/WebGlitch/rsrcs/html> -p <port>` (e.g., npx http-server D:/final_proj/WebGlitch/rsrcs/html -p 8080)
 
 Please update the following variables with the relevant paths on your own system:
 

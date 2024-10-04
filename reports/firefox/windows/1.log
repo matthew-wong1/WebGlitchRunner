@@ -1,18 +1,2 @@
 // Errors disabled
-D:\final_proj\WebGlitch\node_modules\@puppeteer\browsers\lib\cjs\launch.js:312
-                reject(new Error([
-                       ^
-
-Error: Failed to launch the browser process!
-Dynamically enable window occlusion 0
-WebDriver BiDi listening on ws://127.0.0.1:56414
-
-
-TROUBLESHOOTING: https://pptr.dev/troubleshooting
-
-    at ChildProcess.onClose (D:\final_proj\WebGlitch\node_modules\@puppeteer\browsers\lib\cjs\launch.js:312:24)
-    at ChildProcess.emit (node:events:531:35)
-    at ChildProcess._handle.onexit (node:internal/child_process:294:12)
-
-Node.js v20.13.1
-Exit code: 1
+Exit code: 0

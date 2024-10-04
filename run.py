@@ -67,12 +67,12 @@ def search_errors_enabled_disabled(input_file, output_file):
             if 'Errors enabled' in line or 'Errors disabled' in line:
                 outfile.write(line)
 
-def signal_handler(sig, frame):
-    if server_process is not None and server_process.poll() is None:
-        server_process.terminate()
-    sys.exit(0)
+# def signal_handler(sig, frame):
+#     if server_process is not None and server_process.poll() is None:
+#         server_process.terminate()
+#     sys.exit(0)
 
-signal.signal(signal.SIGINT, signal_handler)
+# signal.signal(signal.SIGINT, signal_handler)
 
 def main():
     # Parse command-line arguments
@@ -125,17 +125,18 @@ def main():
     elif backend == 'all_runtimes':
         platforms_to_run = SUPPORTED_RUNTIMES
 
-    if any(platform in SUPPORTED_BROWSERS for platform in platforms_to_run):
-        running_in_browser = True
 
+    # if any(platform in SUPPORTED_BROWSERS for platform in platforms_to_run):
+    #     try: 
+    #         if 'windows' in OSTYPE:
+    #             server_process = subprocess.Popen(['cmd', '/c', HTTP_SERVER_CMD], shell=True)
+    #         else:
+    #             server_process = subprocess.Popen(HTTP_SERVER_CMD, shell=True, executable='/bin/bash')
+    #     except subprocess.CalledProcessError as e:
+    #         print(f"Failed to start http-server on port {port}: {e}")
+    #         print("Continuing regardless...")
 
     try:
-        if running_in_browser:
-            if 'windows' in OSTYPE:
-                server_process = subprocess.Popen(['cmd', '/c', HTTP_SERVER_CMD], shell=True)
-            else:
-                server_process = subprocess.Popen(HTTP_SERVER_CMD, shell=True, executable='/bin/bash')
-
         for platform in platforms_to_run:
             if platform in SUPPORTED_RUNTIMES:
                 with open(CONCATENATED_NAME, 'w') as outfile:
@@ -167,10 +168,12 @@ def main():
             os.environ.pop('EXECUTABLE_PATH', None)
             os.environ.pop('BROWSER', None)
         
-        if running_in_browser:
-            server_process.terminate()
-    except KeyboardInterrupt:
-        pass 
+    except Exception as e:
+        print(f"Error: {e}")
+    # finally:
+    #     if server_process is not None and server_process.poll() is None:
+    #         print("Terminating http-server...")
+    #         server_process.terminate()
 
 if __name__ == "__main__":
     main()
