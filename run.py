@@ -8,12 +8,26 @@ import platform
 import signal
 
 # Set constants
-REPORTS_PATH = '/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/reports/'
-HEADER_PATH = '/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/headers/'
-CONCATENATED_NAME = '/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/concatenated.js'
+WEBGLITCH_PATH = 'D:/final_proj/WebGlitch/'
+WEBGLITCH_RUNNER_PATH = 'D:/final_proj/WebGlitchRunner/'
 DENO_PATH = '/Users/matthew/Documents/msc/final_proj/deno/target/x86_64-unknown-linux-gnu/debug/deno'
-PUPPETEER_SCRIPT_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitch/rsrcs/js/puppeteer.js"
-SERVER_DIRECTORY = '/Users/matthew/Documents/msc/final_proj/WebGlitch/rsrcs/html'
+CHROME_PATH = "D:/browsers/chrome/chrome.exe"
+FIREFOX_PATH = "D:/browsers/firefox/firefox.exe"
+MACOS_INTERCEPTORS = (
+        'DYLD_INSERT_LIBRARIES='
+        '/Applications/Xcode.app/Contents/Developer/Toolchains/'
+        'XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/lib/darwin/'
+        'libclang_rt.asan_osx_dynamic.dylib'
+    )
+LINUX_INTERCEPTORS = 'LD_PRELOAD=/usr/lib/gcc/x86_64-linux-gnu/11/libasan.so'
+
+# DON'T CHANGE THESE
+REPORTS_PATH = WEBGLITCH_RUNNER_PATH + 'reports/'
+HEADER_PATH = WEBGLITCH_RUNNER_PATH + 'headers/'
+CONCATENATED_NAME = WEBGLITCH_RUNNER_PATH + 'concatenated.js'
+PUPPETEER_SCRIPT_PATH= WEBGLITCH_PATH + "rsrcs/js/puppeteer.js"
+SERVER_DIRECTORY = WEBGLITCH_PATH + 'rsrcs/html'
+
 SUPPORTED_BROWSERS = ['chrome', 'firefox']
 SUPPORTED_RUNTIMES = ['dawn', 'wgpu']
 HTTP_SERVER_CMD = ['npx', 'http-server', SERVER_DIRECTORY, '-p', '8080']
@@ -25,12 +39,7 @@ server_process = None
 
 if 'darwin' in OSTYPE:
     OS_DIR = 'macos'
-    INTERCEPTORS = (
-        'DYLD_INSERT_LIBRARIES='
-        '/Applications/Xcode.app/Contents/Developer/Toolchains/'
-        'XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/lib/darwin/'
-        'libclang_rt.asan_osx_dynamic.dylib'
-    )
+    INTERCEPTORS = MACOS_INTERCEPTORS
     TIMEOUT_CMD = 'gtimeout'
     WGPU_BACKEND = 'DENO_WEBGPU_BACKEND=metal'
     os.environ['MTL_DEBUG_LAYER'] = '1'
@@ -39,7 +48,7 @@ elif 'windows' in OSTYPE:
     WGPU_BACKEND = 'DENO_WEBGPU_BACKEND=dx12'
 else:
     OS_DIR = 'linux'
-    INTERCEPTORS = 'LD_PRELOAD=/usr/lib/gcc/x86_64-linux-gnu/11/libasan.so'
+    INTERCEPTORS = LINUX_INTERCEPTORS
     TIMEOUT_CMD = 'timeout'
     WGPU_BACKEND = 'DENO_WEBGPU_BACKEND=vulkan'
     os.environ['VK_INSTANCE_LAYERS'] = 'VK_LAYER_KHRONOS_validation'
@@ -87,12 +96,12 @@ def main():
         },
         'chrome': {
             'cmd': ['node', PUPPETEER_SCRIPT_PATH, FILEPATH],
-            'path': '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary'
+            'path': CHROME_PATH
 
         },
         'firefox': {
             'cmd': ['node', PUPPETEER_SCRIPT_PATH, FILEPATH],
-            'path': '/Applications/Firefox Nightly.app/Contents/MacOS/firefox' 
+            'path': FIREFOX_PATH
         }
     }
     # Create reports directories if they do not exist

@@ -6,11 +6,10 @@ A WebGPU program runner (intended to be integrate with WebGlitch)
 
 Please update the following variables with the relevant paths on your own system:
 
-1. REPORTS_PATH
-2. HEADER_PATH
-3. CONCATENATED_NAME
-4. DENO_PATH
-5. PUPPETEER_SCRIPT_PATH
-6. SERVER_DIRECTORY
-7. INTERCEPTORS (2 variables)
-8. Browser paths for chrome and firefox (in PLATFORM_MAPPINGS)
+1. WEBGLITCH_PATH
+2. WEBGLITCH_RUNNER_PATH
+3. DENO_PATH
+4. CHROME_PATH
+5. FIREFOX_PATH
+6. MACOS_INTERCEPTORS
+7. LINUX_INTERCEPTORS
