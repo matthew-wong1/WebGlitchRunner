@@ -30,7 +30,9 @@ SERVER_DIRECTORY = WEBGLITCH_PATH + 'rsrcs/html'
 
 SUPPORTED_BROWSERS = ['chrome', 'firefox']
 SUPPORTED_RUNTIMES = ['dawn', 'wgpu']
-HTTP_SERVER_CMD = ['npx', 'http-server', SERVER_DIRECTORY, '-p', '8080']
+PORT = 8080
+HTTP_SERVER_CMD = f'npx http-server {SERVER_DIRECTORY} -p {PORT}'
+print(HTTP_SERVER_CMD)
 
 # Detect OS type
 OSTYPE = platform.system().lower()
@@ -46,6 +48,8 @@ if 'darwin' in OSTYPE:
 elif 'windows' in OSTYPE:
     OS_DIR = 'windows'
     WGPU_BACKEND = 'DENO_WEBGPU_BACKEND=dx12'
+    TIMEOUT_CMD=""
+    INTERCEPTORS=""
 else:
     OS_DIR = 'linux'
     INTERCEPTORS = LINUX_INTERCEPTORS
@@ -96,12 +100,14 @@ def main():
         },
         'chrome': {
             'cmd': ['node', PUPPETEER_SCRIPT_PATH, FILEPATH],
-            'path': CHROME_PATH
+            'path': CHROME_PATH,
+            'browser_type': "chrome"
 
         },
         'firefox': {
             'cmd': ['node', PUPPETEER_SCRIPT_PATH, FILEPATH],
-            'path': FIREFOX_PATH
+            'path': FIREFOX_PATH,
+            'browser_type': "firefox"
         }
     }
     # Create reports directories if they do not exist
@@ -125,7 +131,10 @@ def main():
 
     try:
         if running_in_browser:
-            server_process = subprocess.Popen(HTTP_SERVER_CMD)
+            if 'windows' in OSTYPE:
+                server_process = subprocess.Popen(['cmd', '/c', HTTP_SERVER_CMD], shell=True)
+            else:
+                server_process = subprocess.Popen(HTTP_SERVER_CMD, shell=True, executable='/bin/bash')
 
         for platform in platforms_to_run:
             if platform in SUPPORTED_RUNTIMES:
@@ -134,6 +143,10 @@ def main():
                         outfile.write(headerfile.read())
                     with open(FILEPATH, 'r') as infile:
                         outfile.write(infile.read())
+            
+            if platform in SUPPORTED_BROWSERS:
+                os.environ['EXECUTABLE_PATH'] = PLATFORM_MAPPINGS[platform]['path']
+                os.environ['BROWSER'] = PLATFORM_MAPPINGS[platform]['browser_type']
 
             print("Running using " + platform + "...")
 
@@ -150,6 +163,9 @@ def main():
             # Delete the concatenated file
             if platform in SUPPORTED_RUNTIMES:
                 os.remove(CONCATENATED_NAME)
+
+            os.environ.pop('EXECUTABLE_PATH', None)
+            os.environ.pop('BROWSER', None)
         
         if running_in_browser:
             server_process.terminate()

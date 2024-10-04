@@ -1,8 +1,11 @@
 # WebGlitchRunner
 
-A WebGPU program runner (intended to be integrate with WebGlitch)
+A WebGPU program runner (intended to be integrated with WebGlitch)
 
 ## Requirements:
+
+1. Node.js v20+
+2. http-server v14+
 
 Please update the following variables with the relevant paths on your own system:
 
