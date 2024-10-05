@@ -148,6 +148,10 @@ def main():
             if platform in SUPPORTED_BROWSERS:
                 os.environ['EXECUTABLE_PATH'] = PLATFORM_MAPPINGS[platform]['path']
                 os.environ['BROWSER'] = PLATFORM_MAPPINGS[platform]['browser_type']
+            else: # remove browser-specific code
+                current_dir = os.path.dirname(os.path.abspath(__file__))
+                comment_out_script_path = current_dir + '/commentOut.py'
+                subprocess.run(['python3', comment_out_script_path, CONCATENATED_NAME], check=True)
 
             print("Running using " + platform + "...")
 
