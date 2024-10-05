@@ -1,0 +1,14 @@
+// Errors disabled
+hi
+node:internal/process/promises:289
+            triggerUncaughtException(err, true /* fromPromise */);
+            ^
+
+Error [ReferenceError]: pathPrefix is not defined
+    at evaluate (evaluate at D:\final_proj\WebGlitch\rsrcs\js\puppeteer.js:51:16, <anonymous>:1:8)
+    at evaluate (evaluate at D:\final_proj\WebGlitch\rsrcs\js\puppeteer.js:51:16, <anonymous>:4:2)
+    at <anonymous> (http://localhost:8080/index.html line 2 > eval:38:27)
+    at loadShader (http://localhost:8080/index.html line 2 > eval:7:5)
+
+Node.js v20.13.1
+Exit code: 1

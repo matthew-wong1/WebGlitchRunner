@@ -1,2 +1,5 @@
-// Errors disabled
+// Errors enabled
+TypeError: GPUDevice0.createQuerySet is not a function
+Out of memory
+Texture with 'GPUTexture0' label is invalid
 Exit code: 0

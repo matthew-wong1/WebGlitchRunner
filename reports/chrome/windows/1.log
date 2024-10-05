@@ -1,2 +1,4 @@
-// Errors disabled
-ERROR: The process "22928" not found.
+// Errors enabled
+A valid external Instance reference no longer exists.
+GPUPipelineError: A valid external Instance reference no longer exists.
+Exit code: 0
