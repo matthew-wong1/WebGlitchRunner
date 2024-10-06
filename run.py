@@ -32,7 +32,6 @@ SUPPORTED_BROWSERS = ['chrome', 'firefox']
 SUPPORTED_RUNTIMES = ['dawn', 'wgpu']
 PORT = 8080
 HTTP_SERVER_CMD = f'npx http-server {SERVER_DIRECTORY} -p {PORT}'
-print(HTTP_SERVER_CMD)
 
 # Detect OS type
 OSTYPE = platform.system().lower()
@@ -124,6 +123,11 @@ def main():
         platforms_to_run = SUPPORTED_BROWSERS
     elif backend == 'all_runtimes':
         platforms_to_run = SUPPORTED_RUNTIMES
+    elif backend in (SUPPORTED_BROWSERS + SUPPORTED_RUNTIMES):
+        platforms_to_run = [backend]
+    else:
+        print(f'Unsupported backend: {backend}')
+        sys.exit(1)
 
 
     # if any(platform in SUPPORTED_BROWSERS for platform in platforms_to_run):
