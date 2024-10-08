@@ -3,10 +3,9 @@ import platform
 import subprocess
 
 # Set constants
-REPORTS_PATH = "/home/matthew/final_project/WebGlitchRunner/reports/"
-HEADER_PATH = "/home/matthew/final_project/WebGlitchRunner/headers/"
-TEMPLATE_PATH = "/home/matthew/final_project/WebGlitchFiles/template.js"
-
+REPORTS_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/reports/"
+HEADER_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/headers/"
+TEMPLATE_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitchFiles/template.js"
 # Initialize environment variables based on the operating system
 if platform.system() == "Darwin":  # macOS
     OS_DIR = "macos"
@@ -27,7 +26,7 @@ else:  # Linux
 os.makedirs(f"{REPORTS_PATH}shaders/{OS_DIR}/", exist_ok=True)
 
 # Main loop to run 2000 times
-for i in range(1, 2001):
+for i in range(21, 2001):
     print(f"Running file {i}")
     log_file_name = f"{REPORTS_PATH}shaders/{OS_DIR}/{i}.log"
     shader_file = f"{i}.wgsl"
@@ -41,7 +40,9 @@ for i in range(1, 2001):
     # Run the command and log the output
     with open(log_file_name, 'w') as log_file:
         try:
-            subprocess.run(command, shell=True, stdout=log_file, stderr=subprocess.STDOUT)
+            subprocess.run(command, shell=True, stdout=log_file, stderr=subprocess.STDOUT, timeout=300)
         except subprocess.CalledProcessError as e:
             print(f"Error running file {i}: {e}")
+        except subprocess.TimeoutExpired:
+            log_file.write("Timeout")
 
