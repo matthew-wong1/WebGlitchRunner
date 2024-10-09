@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:622:9 warning: code is unreachable
+        let var_3 = func_9(Struct_2(1000f, !arg_3.b, Struct_1(510f), !func_5().b.d, select(arg_1.e, !select(vec3<bool>(false, arg_3.e.x, arg_0.x), vec3<bool>(arg_3.e.x, true, arg_1.e.x), true), !arg_3.d)), func_5().b.c, abs(reverseBits(u_input.b)), arg_1).b.c;
+        ^^^^^^^^^
+Killed

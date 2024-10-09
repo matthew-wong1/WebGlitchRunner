@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:539:9 warning: code is unreachable
+        if (!select(var_0.x >= _wgslsmith_f_op_f32(trunc(_wgslsmith_f_op_f32(max(-2507f, -519f)))), abs(14524i) <= arg_0.a.x, arg_3.x)) {
+        ^^
+Killed

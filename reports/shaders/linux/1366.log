@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:273:17 warning: code is unreachable
+        global0 = ~firstLeadingBit(abs(vec4<i32>(global0.x, 27100i, 38428i, u_input.b.x) ^ vec4<i32>(1i, global0.x, 3493i, global0.x))) << (~vec4<u32>(abs(u_input.c.x), _wgslsmith_dot_vec4_u32(~vec4<u32>(0u, 0u, 1276u, 4294967295u), select(u_input.c, vec4<u32>(u_input.a.x, var_0.x, 1u, var_0.x), vec4<bool>(false, true, true, true))), 4294967295u ^ max(arg_0, 58454u), ~(~4294967295u)) % vec4<u32>(32u));
+                ^
+Killed

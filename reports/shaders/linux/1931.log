@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:589:13 warning: code is unreachable
+            let var_2 = _wgslsmith_add_u32(~(4294967295u << (func_3().b.c.a.x % 32u)), var_1) >> (arg_1.b.c.a.x % 32u);
+            ^^^^^^^^^
+Killed

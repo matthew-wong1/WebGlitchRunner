@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:618:13 warning: code is unreachable
+            var var_1 = global0.d.x;
+            ^^^^^^^^^
+Killed

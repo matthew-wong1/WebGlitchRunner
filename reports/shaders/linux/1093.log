@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:846:5 warning: code is unreachable
+    return var_0;
+    ^^^^^^
+Killed

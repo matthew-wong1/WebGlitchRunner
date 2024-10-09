@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:280:5 warning: code is unreachable
+    let var_1 = _wgslsmith_f_op_vec3_f32(-_wgslsmith_f_op_vec3_f32(step(_wgslsmith_div_vec3_f32(_wgslsmith_f_op_vec3_f32(_wgslsmith_f_op_vec3_f32(vec3<f32>(905f, 1000f, 641f) + vec3<f32>(523f, 1503f, 119f)) - _wgslsmith_f_op_vec3_f32(-vec3<f32>(-1000f, -768f, 1000f))), vec3<f32>(-1244f, _wgslsmith_f_op_f32(1316f + 1516f), -176f)), _wgslsmith_f_op_vec3_f32(-_wgslsmith_f_op_vec3_f32(_wgslsmith_f_op_vec3_f32(vec3<f32>(1612f, -488f, 143f) * vec3<f32>(-873f, 388f, -1262f)) + vec3<f32>(-1058f, 1740f, 376f))))));
+    ^^^^^^^^^
+Killed

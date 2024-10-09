@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:399:5 warning: code is unreachable
+    var var_2 = !vec4<bool>(!(!var_1.c.a.x), var_1.a.a.a.x, true, global1[_wgslsmith_index_u32(~max(u_input.a << (0u % 32u), _wgslsmith_sub_u32(1u, var_1.d)), 8u)]);
+    ^^^^^^^^^
+Killed

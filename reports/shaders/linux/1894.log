@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:418:13 warning: code is unreachable
+            if (arg_2.c.b.b.x) {
+            ^^
+Killed

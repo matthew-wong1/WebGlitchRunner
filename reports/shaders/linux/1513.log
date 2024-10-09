@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:743:13 warning: code is unreachable
+            var var_3 = select(select(~vec3<i32>(countOneBits(65828i), func_5(vec3<f32>(-220f, arg_0.a, arg_2.a), vec3<bool>(false, arg_2.e.x, false), vec2<u32>(1u, arg_2.b.x), vec4<bool>(false, arg_0.e.x, true, arg_2.e.x)), 0i), reverseBits(vec3<i32>(arg_0.d | 0i, _wgslsmith_dot_vec2_i32(vec2<i32>(7021i, -30227i), vec2<i32>(arg_0.d, -19418i)), var_1 ^ arg_2.d)), !arg_2.e.ywx), _wgslsmith_clamp_vec3_i32(min(min(~vec3<i32>(arg_0.d, -73521i, -1i), vec3<i32>(26840i, var_1, -21151i)), vec3<i32>(arg_0.d, firstTrailingBit(0i), arg_2.d)), vec3<i32>(-arg_0.d << (arg_1.x % 32u), u_input.c, firstTrailingBit(~9316i)), countOneBits(vec3<i32>(firstTrailingBit(u_input.c), 0i, arg_2.d))), func_4(var_0, _wgslsmith_f_op_vec3_f32(exp2(_wgslsmith_f_op_vec3_f32(vec3<f32>(arg_2.a, -781f, -718f) - vec3<f32>(arg_2.a, arg_0.a, 1203f))))).e.wzw);
+            ^^^^^^^^^
+Killed

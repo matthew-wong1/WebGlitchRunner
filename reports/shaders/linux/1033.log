@@ -1,0 +1,11 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+2 warning(s) generated while compiling the shader:
+:698:17 warning: code is unreachable
+        global0 = _wgslsmith_mod_u32(~(~(~48589u)), 1u);
+                ^
+
+:716:9 warning: code is unreachable
+        loop {
+        ^^^^
+Killed

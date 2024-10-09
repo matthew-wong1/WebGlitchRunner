@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:393:5 warning: code is unreachable
+    let var_1 = Struct_3(-(~_wgslsmith_mult_i32(firstLeadingBit(-25561i), -2146i)), !(!select(vec4<bool>(false, global0.x, var_0.a.a.x, global0.x), var_0.b.a, !vec4<bool>(global0.x, true, var_0.a.a.x, global0.x))), global0.ww);
+    ^^^^^^^^^
+Killed

@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:314:21 warning: code is unreachable
+            global3 = array<Struct_1, 22>();
+                    ^
+Killed

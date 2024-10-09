@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:283:9 warning: code is unreachable
+        switch (~_wgslsmith_div_i32(firstLeadingBit(-countOneBits(86159i)), u_input.a.x)) {
+        ^^^^^^
+Timeout

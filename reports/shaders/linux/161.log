@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:299:13 warning: code is unreachable
+            var var_2 = -vec4<i32>(0i, _wgslsmith_dot_vec3_i32(vec3<i32>(49754i, _wgslsmith_clamp_i32(14355i, global3.c, -16505i), _wgslsmith_mod_i32(global3.c, 2147483647i)), vec3<i32>(firstTrailingBit(1i), global3.c, arg_2.c)), 0i, _wgslsmith_add_i32(_wgslsmith_dot_vec4_i32(vec4<i32>(arg_2.c, global3.c, arg_2.c, arg_2.c), vec4<i32>(17398i, 0i, i32(-2147483648), -37982i)) | -31308i, abs(25235i) << (~var_1.x % 32u)));
+            ^^^^^^^^^
+Killed

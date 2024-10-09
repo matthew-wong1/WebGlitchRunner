@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:382:17 warning: code is unreachable
+        global1 = !(!select(vec4<bool>(true, true, true, true), vec4<bool>(!arg_1.d.c.b.x, false, !arg_1.c.b.b.x, true), vec4<bool>(true, true, true, true)));
+                ^
+Killed

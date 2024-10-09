@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:624:5 warning: code is unreachable
+    let var_0 = vec2<bool>(!(true || all(vec4<bool>(true, true, true, true))), -925f > arg_0);
+    ^^^^^^^^^
+Killed

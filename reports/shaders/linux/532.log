@@ -1,0 +1,11 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+2 warning(s) generated while compiling the shader:
+:493:13 warning: code is unreachable
+            for (var var_0 = -1i; ; ) {
+            ^^^
+
+:567:9 warning: code is unreachable
+        var var_1 = _wgslsmith_f_op_vec3_f32(-_wgslsmith_f_op_vec3_f32(-_wgslsmith_f_op_vec3_f32(sign(_wgslsmith_f_op_vec3_f32(-_wgslsmith_f_op_vec3_f32(round(vec3<f32>(-1000f, 2013f, 513f))))))));
+        ^^^^^^^^^
+Killed

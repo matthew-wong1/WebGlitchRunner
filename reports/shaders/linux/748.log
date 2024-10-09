@@ -1,0 +1,11 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+2 warning(s) generated while compiling the shader:
+:592:13 warning: code is unreachable
+            for (var var_2: i32; select(!any(vec4<bool>(true, true, true, true)), all(vec2<bool>(true, false & var_0.a.a.x)), all(select(var_0.a.a, select(func_5().a.a, var_0.a.a, var_0.a.a.x), !func_5().a.a.x))); ) {
+            ^^^
+
+:960:9 warning: code is unreachable
+        var var_0 = _wgslsmith_f_op_vec4_f32(max(_wgslsmith_f_op_vec4_f32(max(_wgslsmith_f_op_vec4_f32(_wgslsmith_f_op_vec4_f32(round(_wgslsmith_f_op_vec4_f32(vec4<f32>(-1350f, 159f, -459f, -560f) + vec4<f32>(-1374f, -418f, -905f, 779f)))) + _wgslsmith_f_op_vec4_f32(step(vec4<f32>(-149f, 829f, -830f, 492f), vec4<f32>(1299f, 1476f, 1094f, -193f)))), _wgslsmith_f_op_vec4_f32(-_wgslsmith_f_op_vec4_f32(step(vec4<f32>(1f, 1f, 1f, 1f), vec4<f32>(268f, -1000f, -1044f, -199f)))))), _wgslsmith_f_op_vec4_f32(vec4<f32>(_wgslsmith_f_op_f32(-_wgslsmith_f_op_f32(-807f)), _wgslsmith_f_op_f32(-1f), _wgslsmith_f_op_f32(_wgslsmith_f_op_f32(abs(577f)) + _wgslsmith_f_op_f32(round(-2577f))), _wgslsmith_f_op_f32(-_wgslsmith_f_op_f32(1053f - -1617f))) * _wgslsmith_f_op_vec4_f32(-vec4<f32>(1f, 1f, 1f, 1f)))));
+        ^^^^^^^^^
+Killed

@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:343:13 warning: code is unreachable
+            let var_0 = Struct_1(arg_0, _wgslsmith_f_op_f32(_wgslsmith_f_op_f32(-arg_0) - -137f));
+            ^^^^^^^^^
+Killed

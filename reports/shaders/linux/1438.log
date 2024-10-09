@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:415:9 warning: code is unreachable
+        var var_0 = select(vec2<bool>(true, true), vec2<bool>(true, arg_1.a), vec2<bool>(any(vec4<bool>(true, true, !arg_1.a, true)), arg_1.a));
+        ^^^^^^^^^
+Killed

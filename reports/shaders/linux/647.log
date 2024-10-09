@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:421:13 warning: code is unreachable
+            var var_1 = Struct_1(select(global1.a, global2.a, global1.a), select(~(select(global1.b, 0u, true) & 6739u), 1u, all(global2.a)), false, _wgslsmith_f_op_f32(trunc(_wgslsmith_f_op_f32(trunc(_wgslsmith_div_f32(_wgslsmith_f_op_f32(-global2.d), global1.d))))), global2.a.xyw);
+            ^^^^^^^^^
+Killed

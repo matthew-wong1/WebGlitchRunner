@@ -1,0 +1,11 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+2 warning(s) generated while compiling the shader:
+:253:9 warning: code is unreachable
+        return var_0.xy;
+        ^^^^^^
+
+:422:9 warning: code is unreachable
+        let var_2 = Struct_2(_wgslsmith_f_op_f32(-_wgslsmith_f_op_f32(-_wgslsmith_div_f32(_wgslsmith_f_op_vec3_f32(func_5(vec3<f32>(1865f, -169f, -429f), u_input.d)).x, _wgslsmith_f_op_f32(step(328f, -202f))))), max(-46277i, i32(-2147483648)), Struct_1(61740u | func_4(max(u_input.b.yz, vec2<u32>(u_input.c, u_input.c)), vec2<bool>(true, false), vec4<u32>(1u, u_input.c, 0u, 26972u)), _wgslsmith_mod_vec2_i32(_wgslsmith_clamp_vec2_i32(vec2<i32>(-752i, -63345i) << (vec2<u32>(u_input.b.x, u_input.a.x) % vec2<u32>(32u)), max(u_input.d, vec2<i32>(u_input.d.x, u_input.d.x)), firstTrailingBit(u_input.d)), u_input.d), (_wgslsmith_add_u32(0u, u_input.b.x) == ~4294967295u) & true, vec3<bool>(true, true, true), u_input.d.x), !select(vec2<bool>(true, true), func_6(Struct_1(38919u, u_input.d, true, vec3<bool>(true, true, true), -11966i), ~u_input.b.zzy, ~15938u), all(select(vec4<bool>(false, false, true, false), vec4<bool>(true, true, false, false), vec4<bool>(false, true, false, false)))));
+        ^^^^^^^^^
+Killed

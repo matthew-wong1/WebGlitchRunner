@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:440:9 warning: code is unreachable
+        for (; any(select(vec3<bool>(!arg_2.x, arg_0.x && true, true), arg_2.wyz, arg_2.xzz)); ) {
+        ^^^
+Killed

@@ -1,0 +1,11 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+2 warning(s) generated while compiling the shader:
+:421:9 warning: code is unreachable
+        loop {
+        ^^^^
+
+:436:5 warning: code is unreachable
+    return Struct_1(vec4<bool>(var_1.a.x, arg_0.a.x, !all(select(var_1.a.zzx, arg_0.a.wxx, true)), arg_0.a.x), min(vec3<i32>(~(-65633i), arg_0.b.x, ~36162i), max(~_wgslsmith_mult_vec3_i32(u_input.c, var_1.b), vec3<i32>(_wgslsmith_mult_i32(var_1.b.x, var_0.b.x), arg_0.b.x | var_1.b.x, _wgslsmith_mod_i32(1i, 7789i)))), _wgslsmith_f_op_f32(var_0.c - var_1.c), vec4<u32>(4294967295u | ~_wgslsmith_dot_vec2_u32(u_input.d, u_input.d), u_input.d.x, 7958u, ~_wgslsmith_dot_vec3_u32(~vec3<u32>(u_input.d.x, 4294967295u, var_0.d.x), vec3<u32>(42439u, 7736u, 17080u))), _wgslsmith_f_op_f32(round(_wgslsmith_f_op_f32(round(_wgslsmith_f_op_f32(step(_wgslsmith_f_op_f32(-1415f), var_0.e)))))));
+    ^^^^^^
+Killed

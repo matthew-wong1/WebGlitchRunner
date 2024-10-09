@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:716:9 warning: code is unreachable
+        if (var_2.d >= ~(1038i | ~u_input.c.x)) {
+        ^^
+Killed

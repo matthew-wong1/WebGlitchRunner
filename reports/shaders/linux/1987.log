@@ -1,0 +1,6 @@
+Timeoutwarning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:585:9 warning: code is unreachable
+        var var_1 = Struct_1(~_wgslsmith_dot_vec4_u32(~(u_input.d ^ vec4<u32>(u_input.d.x, 23586u, u_input.c.x, u_input.b.x)), countOneBits(u_input.d)), true, select(func_2(-_wgslsmith_sub_i32(u_input.e.x, 0i), _wgslsmith_f_op_vec3_f32(-_wgslsmith_f_op_vec3_f32(-vec3<f32>(-153f, -1276f, -1091f)))).d.a, global1.c, var_0.b));
+        ^^^^^^^^^

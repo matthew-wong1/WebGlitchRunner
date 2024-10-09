@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:246:13 warning: code is unreachable
+            let var_1 = max(~(abs(0u) << (arg_0.x % 32u)), u_input.c ^ firstTrailingBit(~u_input.c));
+            ^^^^^^^^^
+Killed

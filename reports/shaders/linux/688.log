@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:606:9 warning: code is unreachable
+        for (var var_1 = 24739i; ; var_1 += 1i) {
+        ^^^
+Killed

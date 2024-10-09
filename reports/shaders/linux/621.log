@@ -1,0 +1,39 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:269:13 warning: code is unreachable
+    global2 = array<Struct_1, 28>();
+            ^
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==270384==ERROR: AddressSanitizer: FPE on unknown address 0x7f060d3e76a5 (pc 0x7f060d3e76a5 bp 0x7ffe8f8bdd68 sp 0x7ffe8f8bdc88 T0)
+    #0 0x7f060d3e76a5  (/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so+0x1cf6a5)
+    #1 0x7f060d374a0a  (/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so+0x15ca0a)
+    #2 0x7f060d372c77  (/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so+0x15ac77)
+    #3 0x7f060d375154  (/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so+0x15d154)
+    #4 0x7f060d3a992c  (/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so+0x19192c)
+    #5 0x7f060d3bf064  (/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so+0x1a7064)
+    #6 0x7f060d2901a8  (/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so+0x781a8)
+    #7 0x7f060d290e68  (/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so+0x78e68)
+    #8 0x7f060d292dcb  (/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so+0x7adcb)
+    #9 0x7f061c4e197a in dawn::native::vulkan::ComputePipeline::InitializeImpl() /home/matthew/final_project/dawn/src/dawn/native/vulkan/ComputePipelineVk.cpp:131
+    #10 0x7f061ba173a7 in dawn::native::PipelineBase::Initialize(std::optional<dawn::native::PerStage<dawn::native::APIRef<dawn::native::ShaderModuleBase> > >) /home/matthew/final_project/dawn/src/dawn/native/Pipeline.cpp:380
+    #11 0x7f061b7abbc2 in dawn::native::DeviceBase::CreateComputePipeline(dawn::native::ComputePipelineDescriptor const*) /home/matthew/final_project/dawn/src/dawn/native/Device.cpp:2119
+    #12 0x7f061b7ab041 in dawn::native::DeviceBase::APICreateComputePipeline(dawn::native::ComputePipelineDescriptor const*) /home/matthew/final_project/dawn/src/dawn/native/Device.cpp:1355
+    #13 0x7f061b629891 in dawn::native::NativeDeviceCreateComputePipeline(WGPUDeviceImpl*, WGPUComputePipelineDescriptor const*) gen/src/dawn/native/ProcTable.cpp:862
+    #14 0x7f061c53fde0 in wgpuDeviceCreateComputePipeline gen/src/dawn/dawn_proc.cpp:424
+    #15 0x7f061b0f3a53 in wgpu::Device::CreateComputePipeline(wgpu::ComputePipelineDescriptor const*) const gen/include/dawn/webgpu_cpp.h:8236
+    #16 0x7f061b0e464d in wgpu::binding::GPUDevice::createComputePipeline(Napi::Env, wgpu::interop::GPUComputePipelineDescriptor) /home/matthew/final_project/dawn/src/dawn/node/binding/GPUDevice.cpp:381
+    #17 0x7f061b431af6 in wgpu::interop::(anonymous namespace)::Wrappers::WGPUDevice::createComputePipeline(Napi::CallbackInfo const&) gen/node/src/dawn/node/interop/WebGPU.cpp:2572
+    #18 0x7f061b43f7c3 in Napi::InstanceWrap<wgpu::interop::(anonymous namespace)::Wrappers::WGPUDevice>::InstanceMethodCallbackWrapper(napi_env__*, napi_callback_info__*)::{lambda()#1}::operator()() const /home/matthew/final_project/dawn/third_party/node-addon-api/napi-inl.h:4375
+    #19 0x7f061b43f1ae in napi_value__* Napi::details::WrapCallback<Napi::InstanceWrap<wgpu::interop::(anonymous namespace)::Wrappers::WGPUDevice>::InstanceMethodCallbackWrapper(napi_env__*, napi_callback_info__*)::{lambda()#1}>(Napi::InstanceWrap<wgpu::interop::(anonymous namespace)::Wrappers::WGPUDevice>::InstanceMethodCallbackWrapper(napi_env__*, napi_callback_info__*)::{lambda()#1}) /home/matthew/final_project/dawn/third_party/node-addon-api/napi-inl.h:87
+    #20 0x7f061b43e33c in Napi::InstanceWrap<wgpu::interop::(anonymous namespace)::Wrappers::WGPUDevice>::InstanceMethodCallbackWrapper(napi_env__*, napi_callback_info__*) /home/matthew/final_project/dawn/third_party/node-addon-api/napi-inl.h:4368
+    #21 0xc513b8 in v8impl::(anonymous namespace)::FunctionCallbackWrapper::Invoke(v8::FunctionCallbackInfo<v8::Value> const&) (/home/matthew/.nvm/versions/node/v20.16.0/bin/node+0xc513b8)
+    #22 0xf5907e in v8::internal::FunctionCallbackArguments::Call(v8::internal::CallHandlerInfo) (/home/matthew/.nvm/versions/node/v20.16.0/bin/node+0xf5907e)
+    #23 0xf598ec in v8::internal::MaybeHandle<v8::internal::Object> v8::internal::(anonymous namespace)::HandleApiCallHelper<false>(v8::internal::Isolate*, v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Handle<v8::internal::FunctionTemplateInfo>, v8::internal::Handle<v8::internal::Object>, unsigned long*, int) (/home/matthew/.nvm/versions/node/v20.16.0/bin/node+0xf598ec)
+    #24 0xf59db4 in v8::internal::Builtin_HandleApiCall(int, unsigned long*, v8::internal::Isolate*) (/home/matthew/.nvm/versions/node/v20.16.0/bin/node+0xf59db4)
+    #25 0x1964df5 in Builtins_CEntry_Return1_ArgvOnStack_BuiltinExit (/home/matthew/.nvm/versions/node/v20.16.0/bin/node+0x1964df5)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: FPE (/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so+0x1cf6a5) 
+==270384==ABORTING

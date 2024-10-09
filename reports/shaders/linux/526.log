@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:643:15 warning: code is unreachable
+        var_0 = !vec3<bool>(arg_1.d.x, true, arg_1.d.x);
+              ^
+Killed

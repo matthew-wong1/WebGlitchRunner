@@ -1,0 +1,6 @@
+Timeoutwarning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:764:9 warning: code is unreachable
+        var var_2 = vec2<i32>(-arg_1.d, -11663i | _wgslsmith_clamp_i32(_wgslsmith_mod_i32(-15636i, arg_1.d >> (6034u % 32u)), firstTrailingBit(_wgslsmith_clamp_i32(-1i, arg_1.d, i32(-2147483648))), ~(-47363i << (var_1.c.x % 32u))));
+        ^^^^^^^^^

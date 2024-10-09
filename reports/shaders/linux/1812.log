@@ -1,0 +1,11 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+2 warning(s) generated while compiling the shader:
+:396:9 warning: code is unreachable
+        let var_1 = ~u_input.d;
+        ^^^^^^^^^
+
+:538:9 warning: code is unreachable
+        continue;
+        ^^^^^^^^
+Killed

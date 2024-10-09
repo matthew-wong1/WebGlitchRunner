@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:339:5 warning: code is unreachable
+    return select(vec2<bool>(all(arg_0.d.zz), select(arg_0.a.x, false, any(vec3<bool>(false, arg_0.d.x, false)))), arg_2.d.zz, arg_2.d.x);
+    ^^^^^^
+Killed

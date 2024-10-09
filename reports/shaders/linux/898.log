@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:590:9 warning: code is unreachable
+        var var_0 = Struct_1(vec3<u32>(abs(0u) ^ ~_wgslsmith_clamp_u32(u_input.b, 1u, u_input.a.x), max(abs(56428u), reverseBits(max(1u, 0u))), _wgslsmith_sub_u32(~_wgslsmith_mod_u32(16275u, u_input.b), 68790u)), vec3<i32>(~(-(i32(-1i) * -799i)), i32(-2147483648), _wgslsmith_add_i32(func_3(Struct_2(Struct_1(u_input.a.yyz, vec3<i32>(0i, 0i, 28123i), false), Struct_1(vec3<u32>(u_input.a.x, u_input.a.x, u_input.b), vec3<i32>(2147483647i, -1i, 2107i), true), Struct_1(vec3<u32>(15113u, u_input.b, 1u), vec3<i32>(-15722i, -16561i, i32(-2147483648)), true), Struct_1(vec3<u32>(4500u, 39114u, u_input.a.x), vec3<i32>(0i, -1i, 0i), true))).b.x, i32(-1i) * -8904i)), true);
+        ^^^^^^^^^
+Killed

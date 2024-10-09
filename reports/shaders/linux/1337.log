@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:701:5 warning: code is unreachable
+    return Struct_4(~(~max(-vec3<i32>(-3878i, u_input.a.x, 2147483647i), ~vec3<i32>(i32(-2147483648), 30801i, u_input.a.x))), func_8(_wgslsmith_f_op_vec4_f32(vec4<f32>(_wgslsmith_f_op_f32(-1574f * -673f), _wgslsmith_f_op_f32(f32(-1f) * -1000f), 908f, _wgslsmith_f_op_f32(floor(-163f))) * vec4<f32>(_wgslsmith_f_op_f32(sign(-1000f)), -1618f, _wgslsmith_f_op_f32(2603f * 1101f), _wgslsmith_f_op_f32(243f + -651f))), _wgslsmith_div_vec3_u32(vec3<u32>(func_8(vec4<f32>(-1075f, 2163f, 969f, 855f), vec3<u32>(14408u, 45131u, 8124u), vec3<f32>(-1619f, 592f, -589f), vec3<u32>(0u, 14283u, 1u)).b.d, countOneBits(4294967295u), ~40992u), ~countOneBits(vec3<u32>(1u, 63669u, 36481u))), _wgslsmith_f_op_vec3_f32(exp2(vec3<f32>(_wgslsmith_f_op_f32(-2447f * 158f), _wgslsmith_f_op_f32(step(-329f, 381f)), _wgslsmith_f_op_f32(1930f - -1549f)))), vec3<u32>(reverseBits(1u), func_5().x, 29817u)));
+    ^^^^^^
+Killed

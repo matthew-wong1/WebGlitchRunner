@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:634:21 warning: code is unreachable
+            global1 = vec4<i32>(i32(-2147483648), func_2().a, _wgslsmith_dot_vec3_i32(func_1(func_3()).e.yzx, reverseBits(global0.e.zzy)), global1.x);
+                    ^
+Killed

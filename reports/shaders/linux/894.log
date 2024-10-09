@@ -1,0 +1,11 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+2 warning(s) generated while compiling the shader:
+:436:21 warning: code is unreachable
+            global2 = array<vec2<u32>, 16>();
+                    ^
+
+:815:13 warning: code is unreachable
+            let var_1 = vec4<i32>(1i, u_input.d.x, firstLeadingBit(max(_wgslsmith_dot_vec2_i32(vec2<i32>(u_input.d.x, u_input.d.x), u_input.d), u_input.e.x | u_input.d.x) ^ 1i), u_input.e.x);
+            ^^^^^^^^^
+Killed

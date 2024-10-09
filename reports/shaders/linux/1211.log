@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:321:9 warning: code is unreachable
+        if (select(all(vec2<bool>(all(global0.xx), false)), arg_3.x, !(!select(global0.x, global0.x, arg_2.x) | (select(arg_2.x, arg_2.x, true) | global0.x)))) {
+        ^^
+Killed

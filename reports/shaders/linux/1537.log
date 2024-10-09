@@ -1,0 +1,11 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+2 warning(s) generated while compiling the shader:
+:552:9 warning: code is unreachable
+        if (func_4().d) {
+        ^^
+
+:649:13 warning: code is unreachable
+            let var_2 = countOneBits(vec3<u32>(select(98660u, var_1.b.x & 63091u, var_1.d), _wgslsmith_mult_u32(1u, var_1.a.b.x), 1u)) << (~max(_wgslsmith_sub_vec3_u32(vec3<u32>(u_input.c.x, 1u, 7707u), var_1.b | vec3<u32>(u_input.c.x, u_input.d, var_1.a.b.x)), _wgslsmith_mod_vec3_u32(~var_1.b, firstTrailingBit(vec3<u32>(var_1.a.b.x, u_input.d, 16687u)))) % vec3<u32>(32u));
+            ^^^^^^^^^
+Killed

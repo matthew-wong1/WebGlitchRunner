@@ -1,0 +1,15 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+3 warning(s) generated while compiling the shader:
+:286:13 warning: code is unreachable
+            var var_0 = _wgslsmith_f_op_vec3_f32(vec3<f32>(_wgslsmith_f_op_f32(-_wgslsmith_div_f32(-1350f, _wgslsmith_f_op_f32(-935f + 889f))), _wgslsmith_f_op_f32(-1229f + _wgslsmith_f_op_f32(-181f)), _wgslsmith_f_op_f32(-_wgslsmith_f_op_f32(_wgslsmith_f_op_f32(1760f + -980f) + _wgslsmith_f_op_f32(abs(104f))))) + vec3<f32>(_wgslsmith_f_op_f32(min(_wgslsmith_f_op_f32(-_wgslsmith_f_op_f32(f32(-1f) * -646f)), -143f)), -2160f, _wgslsmith_f_op_f32(-_wgslsmith_f_op_f32(-_wgslsmith_f_op_f32(-355f)))));
+            ^^^^^^^^^
+
+:431:21 warning: code is unreachable
+            global1 = func_7(_wgslsmith_f_op_vec3_f32(floor(_wgslsmith_f_op_vec3_f32(-vec3<f32>(_wgslsmith_f_op_f32(-var_0), _wgslsmith_div_f32(var_0, -1000f), 839f)))), Struct_1(vec4<u32>(19950u, 26578u, global1.b.x, global1.b.x), firstTrailingBit(global1.b), ~_wgslsmith_mult_vec2_u32(vec2<u32>(0u, global1.b.x), vec2<u32>(33266u, global0.c.x)), -max(func_7(vec3<f32>(var_0, var_0, var_0), Struct_1(vec4<u32>(global0.b.x, global0.b.x, 1u, global0.b.x), vec2<u32>(global0.a.x, global0.c.x), global0.b, -11544i, global0.e)).d, -41069i), global1.e));
+                    ^
+
+:672:9 warning: code is unreachable
+        let var_2 = _wgslsmith_f_op_f32(-272f * 1000f);
+        ^^^^^^^^^
+Killed

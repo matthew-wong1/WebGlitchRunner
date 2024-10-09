@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:594:5 warning: code is unreachable
+    var var_0 = all(select(!vec2<bool>(!arg_0.c.x, false), func_5(true).a, true));
+    ^^^^^^^^^
+Killed

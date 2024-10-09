@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:737:13 warning: code is unreachable
+            if (func_6(vec2<u32>(global0.x, 1u)).x != func_6(vec2<u32>(~27840u, ~u_input.a)).x) {
+            ^^
+Killed

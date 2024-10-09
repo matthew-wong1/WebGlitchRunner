@@ -4,9 +4,9 @@
 # NEED DIFFERENCES ACCORIDING TO MACOS AND LINUX 
 
 # Set constants
-REPORTS_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/reports/"
-HEADER_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/headers/"
-TEMPLATE_PATH="/Users/matthew/Documents/msc/final_proj/WebGlitchFiles/template.js"
+REPORTS_PATH="/home/matthew/final_project/WebGlitchRunner/reports/"
+TEMPLATE_PATH="/home/matthew/final_project/WebGlitchFiles/template.js"
+export PATH=$PATH
 # CONCATENATED_NAME="/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/concatenated.js"
 # CHROME_PATH="/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
 # FIREFOX_PATH="/Applications/Firefox Nightly.app/Contents/MacOS/firefox"
@@ -65,12 +65,13 @@ FILENAME=$(basename "$FILEPATH")
 
 # Now extract the number from the filename
 # FILENUMBER="${FILENAME%%.*}"
-
-for i in {1..2000}; do
+ulimit -c 0 
+trap "" SIGTRAP
+for i in {42..43}; do
 	echo "Running file $i"
     	LOG_FILE_NAME="${REPORTS_PATH}shaders/${OS_DIR}/${i}.log"
 	export SHADER_FILE="$i.wgsl"
-    	env $INTERCEPTORS node $TEMPLATE_PATH >> "$LOG_FILE_NAME" 2>&1;
+    	LD_PRELOAD=/usr/lib/gcc/x86_64-linux-gnu/11/libasan.so node $TEMPLATE_PATH > "$LOG_FILE_NAME" 2>&1
 done
 
 

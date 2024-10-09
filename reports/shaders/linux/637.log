@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:313:13 warning: code is unreachable
+    global2 = array<u32, 16>();
+            ^
+Killed

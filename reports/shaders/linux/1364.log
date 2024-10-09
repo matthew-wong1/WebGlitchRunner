@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:1029:15 warning: code is unreachable
+        var_1 = _wgslsmith_f_op_f32(-_wgslsmith_f_op_f32(floor(_wgslsmith_f_op_f32(max(-3137f, _wgslsmith_f_op_f32(_wgslsmith_f_op_f32(-237f) * _wgslsmith_f_op_f32(trunc(722f))))))));
+              ^
+Killed

@@ -1,0 +1,15 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+3 warning(s) generated while compiling the shader:
+:352:5 warning: code is unreachable
+    switch (~u_input.d) {
+    ^^^^^^
+
+:416:9 warning: code is unreachable
+        var var_1 = -(~vec2<i32>(_wgslsmith_dot_vec3_i32(_wgslsmith_sub_vec3_i32(vec3<i32>(u_input.b.x, u_input.c.x, -1i), vec3<i32>(u_input.c.x, i32(-2147483648), u_input.c.x)), u_input.b.zxy), _wgslsmith_sub_i32(-u_input.c.x, -u_input.c.x)));
+        ^^^^^^^^^
+
+:486:9 warning: code is unreachable
+        let var_0 = arg_1.x > 660f;
+        ^^^^^^^^^
+Killed

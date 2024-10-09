@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:541:17 warning: code is unreachable
+        global0 = all(select(vec4<bool>(global2.d, false, global2.d, false), !(!vec4<bool>(false, global2.d, false, false)), select(select(!vec4<bool>(true, true, global2.d, false), !vec4<bool>(global2.d, false, global2.d, true), global2.d), !(!vec4<bool>(global2.d, global2.d, true, global2.d)), any(select(vec2<bool>(global2.d, global2.d), vec2<bool>(true, global2.d), global2.d)))));
+                ^
+Killed

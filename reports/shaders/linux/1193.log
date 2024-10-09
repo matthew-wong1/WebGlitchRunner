@@ -1,0 +1,7 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+1 warning(s) generated while compiling the shader:
+:1024:9 warning: code is unreachable
+        if (any(vec4<bool>(2499f != _wgslsmith_f_op_f32(max(-751f, _wgslsmith_div_f32(-1505f, var_0.c))), any(!select(vec4<bool>(false, false, var_2.d, var_0.d), vec4<bool>(var_0.d, var_0.d, false, true), true)), (var_0.c >= _wgslsmith_f_op_f32(f32(-1f) * -593f)) || (func_6(vec3<u32>(var_1.e.x, var_2.e.x, 22578u)).x && true), ((false || var_2.d) || var_0.d) || func_4(var_2)))) {
+        ^^
+Killed

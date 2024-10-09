@@ -1,0 +1,11 @@
+warning:
+Compilation log for [ShaderModule (unlabeled)]:
+2 warning(s) generated while compiling the shader:
+:371:9 warning: code is unreachable
+        for (var var_3 = i32(-1i) * -u_input.b.x; ; ) {
+        ^^^
+
+:748:15 warning: code is unreachable
+        var_0 = Struct_5(_wgslsmith_f_op_vec3_f32(_wgslsmith_f_op_vec3_f32(-vec3<f32>(_wgslsmith_div_f32(arg_1.a.e.c, var_0.a.x), 1004f, _wgslsmith_f_op_f32(max(904f, 1173f)))) + _wgslsmith_f_op_vec3_f32(_wgslsmith_f_op_vec3_f32(_wgslsmith_f_op_vec3_f32(trunc(vec3<f32>(arg_1.a.b, arg_1.a.e.c, var_1.x))) + _wgslsmith_f_op_vec3_f32(-vec3<f32>(var_1.x, -431f, -888f))) * vec3<f32>(-2056f, _wgslsmith_f_op_f32(select(204f, -329f, true)), _wgslsmith_f_op_f32(ceil(457f))))), false);
+              ^
+Timeout
