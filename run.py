@@ -8,17 +8,12 @@ import platform
 import signal
 
 # Set constants
-WEBGLITCH_PATH = 'D:/final_proj/WebGlitch/'
-WEBGLITCH_RUNNER_PATH = 'D:/final_proj/WebGlitchRunner/'
+WEBGLITCH_PATH = '/Users/matthew/Documents/msc/final_proj/WebGlitch/'
+WEBGLITCH_RUNNER_PATH = '/Users/matthew/Documents/msc/final_proj/WebGlitchRunner/'
 DENO_PATH = '/Users/matthew/Documents/msc/final_proj/deno/target/x86_64-unknown-linux-gnu/debug/deno'
-CHROME_PATH = "D:/browsers/chrome/chrome.exe"
-FIREFOX_PATH = "D:/browsers/firefox/firefox.exe"
-MACOS_INTERCEPTORS = (
-        'DYLD_INSERT_LIBRARIES='
-        '/Applications/Xcode.app/Contents/Developer/Toolchains/'
-        'XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/lib/darwin/'
-        'libclang_rt.asan_osx_dynamic.dylib'
-    )
+CHROME_PATH = "/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
+FIREFOX_PATH = "/Applications/Firefox Nightly.app/Contents/MacOS/firefox"
+MACOS_INTERCEPTORS = "DYLD_INSERT_LIBRARIES=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/16/lib/darwin/libclang_rt.asan_osx_dynamic.dylib"
 LINUX_INTERCEPTORS = 'LD_PRELOAD=/usr/lib/gcc/x86_64-linux-gnu/11/libasan.so'
 
 # DON'T CHANGE THESE
@@ -165,7 +160,7 @@ def main():
             # Build the command with environment variables inline
 
             with open(LOG_FILE_NAME, 'a') as logfile:
-                process = subprocess.run(PLATFORM_MAPPINGS[platform]['cmd'], stdout=logfile, stderr=subprocess.STDOUT)
+                process = subprocess.run(PLATFORM_MAPPINGS[platform]['cmd'], stdout=logfile, stderr=subprocess.STDOUT, timeout=300)
                 exit_code = process.returncode
                 logfile.write(f"Exit code: {exit_code}\n")
 
